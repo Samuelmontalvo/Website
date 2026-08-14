@@ -36,6 +36,12 @@ test("server-renders the finished research profile", async () => {
   assert.match(html, /Personalized exercise medicine/);
   assert.match(html, /from molecules to movement/);
   assert.match(html, /Metabo-Diet/);
+  assert.match(html, /Vertical Jump Atlas/);
+  assert.match(html, /Explore sport norms/);
+  assert.match(
+    html,
+    /takeoff-jump-atlas\.samuelmontalvo\.chatgpt\.site\/#sport-norms/,
+  );
   assert.match(html, /FlightLab EDU/);
   assert.match(html, /Stanford CPET App/);
   assert.match(html, /Exercise Science Practice Lab/);

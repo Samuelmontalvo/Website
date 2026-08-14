@@ -15,6 +15,31 @@ const arrowIcon = (
 const tools = [
   {
     number: "01",
+    status: "Evidence atlas · release 0.6",
+    title: "Vertical Jump Atlas",
+    subtitle: "PubMed evidence by test protocol",
+    body: "Compare published cohorts, explore protocol-specific reference values, and pool compatible means in an exploratory meta-analysis. A curated evidence map—not a diagnostic or talent-selection tool.",
+    tags: ["51 PubMed records", "74 reference estimates", "Protocol-aware"],
+    href: "https://takeoff-jump-atlas.samuelmontalvo.chatgpt.site/#sport-norms",
+    action: "Explore sport norms",
+    theme: "atlas",
+    visual: (
+      <div className="tool-visual atlas-visual" aria-hidden="true">
+        <span className="atlas-grid" />
+        <span className="atlas-kicker">Reference values by jump protocol</span>
+        <span className="atlas-scale scale-zero">0</span>
+        <span className="atlas-scale scale-thirty">30</span>
+        <span className="atlas-scale scale-sixty">60 cm</span>
+        <span className="atlas-bar atlas-bar-a"><i>CMJ</i><b>44.3</b></span>
+        <span className="atlas-bar atlas-bar-b"><i>CMJ + arms</i><b>48.1</b></span>
+        <span className="atlas-bar atlas-bar-c"><i>SJ</i><b>35.7</b></span>
+        <span className="atlas-marker"><i>Your jump</i><b>30 cm</b></span>
+        <span className="atlas-source">PubMed-indexed cohorts · protocol filters · compatible means</span>
+      </div>
+    ),
+  },
+  {
+    number: "02",
     status: "In development",
     title: "Metabo-Diet",
     subtitle: "Harmonization training with synthetic data",
@@ -38,7 +63,7 @@ const tools = [
     ),
   },
   {
-    number: "02",
+    number: "03",
     status: "Public beta",
     title: "FlightLab EDU",
     subtitle: "Evidence-visible video analysis",
@@ -65,7 +90,7 @@ const tools = [
     ),
   },
   {
-    number: "03",
+    number: "04",
     status: "Private research software",
     title: "Stanford CPET App",
     subtitle: "From raw tests to review-ready physiology",
@@ -85,7 +110,7 @@ const tools = [
     ),
   },
   {
-    number: "04",
+    number: "05",
     status: "Live learning tool",
     title: "Exercise Science Practice Lab",
     subtitle: "Certification study, built for retrieval",
