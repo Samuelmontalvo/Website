@@ -1,4 +1,5 @@
 import { ResearchNetwork } from "./research-network";
+import { publicationGroups, totalPublicationCount } from "./publications-data";
 
 const externalIcon = (
   <svg viewBox="0 0 16 16" aria-hidden="true">
@@ -131,32 +132,73 @@ const tools = [
   },
 ];
 
-const publications = [
+const education = [
   {
-    year: "2025",
-    type: "Multi-omics · Circulation Research",
-    title: "Endurance Training Enhances Sex-Specific Cardioprotective Metabolism",
-    authors:
-      "Brochet P, Montalvo S, Lindholm ME, Jimenez-Morales D, Jin CA, et al.",
-    href: "https://pubmed.ncbi.nlm.nih.gov/40859825/",
+    type: "Postdoctoral training",
+    title: "Myocardial Biology · Bioinformatics",
+    institution: "Stanford University",
+    period: "Aug 2024 — Present",
   },
   {
-    year: "2025",
-    type: "Sports cardiology · JACC: Advances",
-    title:
-      "Race- and Sex-Associated Electrocardiographic Repolarization Characteristics in Young American Athletes",
-    authors: "Tso JV, Montalvo S, Ferrari F, Collins B, Jones S, et al.",
-    href: "https://www.jacc.org/doi/10.1016/j.jacadv.2025.102409",
+    type: "Postdoctoral fellowship",
+    title: "Human Performance · Clinical Exercise Physiology",
+    institution: "Stanford University",
+    period: "Aug 2022 — Aug 2024",
   },
   {
-    year: "2024",
-    type: "Biomechanics · JSCR",
-    title:
-      "Measuring Vertical Jump Height With Artificial Intelligence Through a Cell Phone",
-    authors: "Tan ECH, Onn SW, Montalvo S.",
-    href: "https://pubmed.ncbi.nlm.nih.gov/38953840/",
+    type: "PhD",
+    title: "Interdisciplinary Health Science",
+    institution: "Exercise Physiology · Biomechanics · University of Texas at El Paso",
+    period: "Aug 2016 — May 2021",
+  },
+  {
+    type: "MS",
+    title: "Kinesiology",
+    institution: "Clinical Exercise Physiology · University of Texas at El Paso",
+    period: "Aug 2011 — Aug 2015",
+  },
+  {
+    type: "BS",
+    title: "Kinesiology",
+    institution: "Physical Education · University of Texas at El Paso",
+    period: "Aug 2007 — Aug 2011",
   },
 ];
+
+const footerLinks = [
+  {
+    label: "ResearchGate",
+    href: "https://www.researchgate.net/profile/Samuel-Montalvo",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/samuel-montalvo-ph-d-a4872282",
+  },
+  {
+    label: "Stanford Profile",
+    href: "https://profiles.stanford.edu/samuel-montalvo-hernandez",
+  },
+  {
+    label: "Google Scholar",
+    href: "https://scholar.google.com/citations?user=whonnOUAAAAJ&hl=en",
+  },
+];
+
+function PublicationCitation({ citation }: { citation: string }) {
+  const parts = citation.split(/(Montalvo(?: Hernandez)?, S\.)/g);
+
+  return (
+    <>
+      {parts.map((part, index) =>
+        /^Montalvo(?: Hernandez)?, S\.$/.test(part) ? (
+          <strong key={`${part}-${index}`}>{part}</strong>
+        ) : (
+          part
+        ),
+      )}
+    </>
+  );
+}
 
 export default function Home() {
   return (
@@ -174,6 +216,7 @@ export default function Home() {
           <a href="#research">Research</a>
           <a href="#tools">Tools</a>
           <a href="#publications">Publications</a>
+          <a href="#education">Education</a>
           <a href="#about">About</a>
         </div>
         <a className="nav-contact" href="mailto:smontal@stanford.edu">
@@ -330,12 +373,21 @@ export default function Home() {
       <section className="publications-section" id="publications">
         <div className="section-shell publication-layout">
           <div className="publication-intro">
-            <span className="eyebrow">Selected work</span>
-            <h2>Evidence across scales.</h2>
+            <span className="eyebrow">Complete record · Updated Aug 2026</span>
+            <h2>{totalPublicationCount} works across scales.</h2>
             <p>
-              From mitochondrial metabolism and athlete ECG phenotypes to
-              accessible measures of neuromuscular performance.
+              Peer-reviewed papers, active preprints, and published abstracts,
+              reconciled against my CV, PubMed, Stanford profile, and publisher
+              records. PubMed is the primary link whenever a record is indexed.
             </p>
+            <div className="publication-counts" aria-label="Publication totals">
+              {publicationGroups.map((group) => (
+                <div key={group.id}>
+                  <strong>{group.items.length}</strong>
+                  <span>{group.label}</span>
+                </div>
+              ))}
+            </div>
             <div className="profile-links">
               <a
                 href="https://scholar.google.com/citations?user=whonnOUAAAAJ&hl=en"
@@ -353,25 +405,68 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="publication-list">
-            {publications.map((publication) => (
-              <a
-                className="publication-row"
-                href={publication.href}
-                target="_blank"
-                rel="noreferrer"
-                key={publication.title}
+          <div className="publication-groups">
+            {publicationGroups.map((group) => (
+              <details
+                className="publication-group"
+                open={group.initiallyOpen}
+                key={group.id}
               >
-                <span className="publication-year">{publication.year}</span>
-                <div>
-                  <span>{publication.type}</span>
-                  <h3>{publication.title}</h3>
-                  <p>{publication.authors}</p>
+                <summary>
+                  <span>{group.label}</span>
+                  <span>{group.items.length}</span>
+                </summary>
+                <div className="publication-list">
+                  {group.items.map((publication) => (
+                    <a
+                      className="publication-row"
+                      href={publication.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      key={publication.id}
+                    >
+                      <span className="publication-year">{publication.year}</span>
+                      <div>
+                        <span>{publication.label}</span>
+                        <p className="publication-citation">
+                          <PublicationCitation citation={publication.citation} />
+                        </p>
+                      </div>
+                      {arrowIcon}
+                    </a>
+                  ))}
                 </div>
-                {arrowIcon}
-              </a>
+              </details>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="education-section section-shell" id="education">
+        <div className="section-heading split-heading education-heading">
+          <div>
+            <span className="eyebrow">Education & training</span>
+            <h2>Built across physiology, biomechanics, and bioinformatics.</h2>
+          </div>
+          <p>
+            A foundation in human performance now extended through myocardial
+            biology, computational methods, and multi-omic exercise science.
+          </p>
+        </div>
+        <div className="education-list">
+          {education.map((item, index) => (
+            <article className="education-row" key={`${item.type}-${item.period}`}>
+              <span className="education-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <span>{item.type}</span>
+                <h3>{item.title}</h3>
+                <p>{item.institution}</p>
+              </div>
+              <time>{item.period}</time>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -411,11 +506,11 @@ export default function Home() {
           </p>
           <div className="about-links">
             <a
-              href="https://drive.google.com/file/d/1TJOMkD6OUdVq-M5h0RGwgH7kCzMYA5tE/view?usp=share_link"
+              href="/samuel-montalvo-cv.pdf"
               target="_blank"
               rel="noreferrer"
             >
-              Download CV {externalIcon}
+              View current CV {externalIcon}
             </a>
             <a href="https://github.com/Samuelmontalvo" target="_blank" rel="noreferrer">
               GitHub {externalIcon}
@@ -448,8 +543,14 @@ export default function Home() {
           <span>SM</span>
           <strong>Samuel Montalvo, PhD</strong>
         </div>
-        <p>Personalized exercise medicine · Stanford, California</p>
-        <div>
+        <nav className="footer-links" aria-label="Professional profiles">
+          {footerLinks.map((link) => (
+            <a href={link.href} target="_blank" rel="noreferrer" key={link.label}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+        <div className="footer-top">
           <a href="#top">Back to top ↑</a>
         </div>
       </footer>
