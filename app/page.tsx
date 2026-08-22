@@ -1,5 +1,6 @@
 import { ProjectAreas } from "./project-areas";
 import { publicationGroups, totalPublicationCount } from "./publications-data";
+import { SelectedPapers } from "./selected-papers";
 
 const externalIcon = (
   <svg viewBox="0 0 16 16" aria-hidden="true">
@@ -728,7 +729,13 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
       </section>
 
       <section className="publications-section" id="publications">
-        <div className="section-shell publication-layout">
+        <div className="section-shell">
+          <SelectedPapers locale={locale} />
+        </div>
+        <div
+          className="section-shell publication-layout publication-archive"
+          id="complete-publication-record"
+        >
           <div className="publication-intro">
             <span className="eyebrow">{copy.publications.eyebrow}</span>
             <h2>{copy.publications.title}</h2>

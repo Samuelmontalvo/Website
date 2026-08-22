@@ -57,6 +57,17 @@ test("server-renders the finished research profile", async () => {
   assert.match(html, /exercise-science-exam-prep\.netlify\.app/);
   assert.match(html, /mailto:smontal@stanford\.edu/);
   assert.match(html, /95(?:<!-- -->)? papers, preprints, and abstracts/);
+  assert.match(html, /Selected papers/);
+  assert.match(html, /Six papers that reflect the direction of my work/);
+  assert.equal((html.match(/class="selected-paper-card"/g) ?? []).length, 6);
+  assert.equal((html.match(/<figcaption>/g) ?? []).length, 6);
+  assert.match(html, /id="complete-publication-record"/);
+  assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/42164870/);
+  assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/40837520/);
+  assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/40565934/);
+  assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/41351976/);
+  assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/42395096/);
+  assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/35620608/);
   assert.match(html, /Peer-reviewed publications/);
   assert.match(html, /Published abstracts &amp; proceedings/);
   assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/42580351/);
@@ -95,6 +106,9 @@ test("serves a complete Spanish translation with an English switch", async () =>
   assert.match(html, /Agentes de IA y aplicaciones/);
   assert.match(html, /Software para investigación, docencia y análisis/);
   assert.match(html, /Publicaciones revisadas por pares/);
+  assert.match(html, /Trabajos seleccionados/);
+  assert.match(html, /Rendimiento deportivo · Sprint con resistencia/);
+  assert.match(html, /Consultar el registro completo de publicaciones/);
   assert.match(html, /Formación académica y posdoctoral/);
   assert.match(html, /href="\/"[^>]+aria-label="Ver sitio en inglés"/);
   assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/42580351/);
@@ -126,6 +140,18 @@ test("ships site-specific metadata and accessible assets", async () => {
   await access(new URL("../public/og.png", import.meta.url));
   await access(new URL("../public/samuel-montalvo.jpg", import.meta.url));
   await access(new URL("../public/samuel-montalvo-cv.pdf", import.meta.url));
+  await Promise.all(
+    [
+      "motrpac-multi-omic-figure-2.jpg",
+      "resisted-sprint-figure-1.jpg",
+      "nmd-cpet-recovery-figure-1.jpg",
+      "athlete-ecg-central-illustration.jpg",
+      "my-heart-counts-figure-1.jpg",
+      "carotid-shear-stress-figure-3.jpg",
+    ].map((filename) =>
+      access(new URL(`../public/selected-papers/${filename}`, import.meta.url)),
+    ),
+  );
   await assert.rejects(
     access(new URL("../app/_sites-preview/SkeletonPreview.tsx", import.meta.url)),
   );
