@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 type PathwayKey = "metabolism" | "movement" | "systems";
+type Locale = "en" | "es";
 
 type Node = {
   id: string;
@@ -25,39 +26,84 @@ const nodes: Node[] = [
   { id: "fitness", label: "Cardiorespiratory fitness", x: 88, y: 82, kind: "outcome" },
 ];
 
+const nodeLabels: Record<Locale, Record<string, string>> = {
+  en: Object.fromEntries(nodes.map((node) => [node.id, node.label])),
+  es: {
+    diet: "Alimentación",
+    training: "Dosis de entrenamiento",
+    wearables: "Dispositivos portátiles",
+    metabolome: "Metaboloma",
+    kinematics: "Cinemática",
+    cpet: "CPET + ECG",
+    medicine: "Medicina del ejercicio\npersonalizada",
+    metabolic: "Respuesta metabólica",
+    power: "Potencia neuromuscular",
+    fitness: "Capacidad cardiorrespiratoria",
+  },
+};
+
 const pathways: Record<
   PathwayKey,
   {
     eyebrow: string;
-    label: string;
-    summary: string;
     chain: string[];
     color: string;
   }
 > = {
   metabolism: {
     eyebrow: "MetaboDiet",
-    label: "Nutrition + multi-omics",
-    summary:
-      "Connect dietary patterns with clinical phenotypes and molecular responses to find biologically meaningful differences between people.",
     chain: ["diet", "metabolome", "medicine", "metabolic"],
     color: "#d06b3f",
   },
   movement: {
     eyebrow: "JumpLab",
-    label: "Movement + performance",
-    summary:
-      "Translate accessible movement testing into quality-controlled measures of neuromuscular performance and training response.",
     chain: ["training", "kinematics", "medicine", "power"],
     color: "#8d9d37",
   },
   systems: {
     eyebrow: "OpenCPET",
-    label: "Physiology + digital health",
-    summary:
-      "Unify physiological signals and exercise-test data to characterize cardiovascular fitness, recovery, and adaptation.",
     chain: ["wearables", "cpet", "medicine", "fitness"],
     color: "#2f7f7a",
+  },
+};
+
+const pathwayCopy: Record<
+  Locale,
+  Record<PathwayKey, { label: string; summary: string }>
+> = {
+  en: {
+    metabolism: {
+      label: "Nutrition + multi-omics",
+      summary:
+        "I study how diet relates to clinical measures and molecular responses, including where those relationships differ between people.",
+    },
+    movement: {
+      label: "Movement + performance",
+      summary:
+        "I test whether practical movement measures can capture neuromuscular performance and response to training.",
+    },
+    systems: {
+      label: "Physiology + digital health",
+      summary:
+        "I combine exercise-test data and physiological signals to study cardiovascular fitness, recovery, and adaptation.",
+    },
+  },
+  es: {
+    metabolism: {
+      label: "Nutrición + multiómica",
+      summary:
+        "Estudio cómo se relaciona la alimentación con las mediciones clínicas y las respuestas moleculares, y cómo cambian esas relaciones entre personas.",
+    },
+    movement: {
+      label: "Movimiento + rendimiento",
+      summary:
+        "Evalúo si las mediciones prácticas del movimiento pueden captar el rendimiento neuromuscular y la respuesta al entrenamiento.",
+    },
+    systems: {
+      label: "Fisiología + salud digital",
+      summary:
+        "Combino datos de pruebas de ejercicio y señales fisiológicas para estudiar la capacidad cardiovascular, la recuperación y la adaptación.",
+    },
   },
 };
 
@@ -82,11 +128,12 @@ function edgeKey(a: string, b: string) {
   return `${a}:${b}`;
 }
 
-export function ResearchNetwork() {
+export function ResearchNetwork({ locale = "en" }: { locale?: Locale }) {
   const [active, setActive] = useState<PathwayKey>("metabolism");
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const selected = pathways[active];
+  const selectedCopy = pathwayCopy[locale][active];
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -194,7 +241,11 @@ export function ResearchNetwork() {
 
   return (
     <div className="network-module">
-      <div className="network-tabs" role="tablist" aria-label="Research pathways">
+      <div
+        className="network-tabs"
+        role="tablist"
+        aria-label={locale === "es" ? "Líneas de investigación" : "Research pathways"}
+      >
         {(Object.keys(pathways) as PathwayKey[]).map((key) => (
           <button
             className={key === active ? "network-tab active" : "network-tab"}
@@ -205,7 +256,7 @@ export function ResearchNetwork() {
             style={{ "--path-color": pathways[key].color } as React.CSSProperties}
           >
             <span>{pathways[key].eyebrow}</span>
-            {pathways[key].label}
+            {pathwayCopy[locale][key].label}
           </button>
         ))}
       </div>
@@ -213,39 +264,46 @@ export function ResearchNetwork() {
       <div className="network-desktop">
         <div className="network-stage" ref={stageRef}>
           <canvas ref={canvasRef} aria-hidden="true" />
-          {nodes.map((node) => (
-            <div
-              className={`network-node node-${node.kind} ${
-                activeNodes.has(node.id) ? "active" : ""
-              }`}
-              key={node.id}
-              style={
-                {
-                  left: `${node.x}%`,
-                  top: `${node.y}%`,
-                  "--path-color": selected.color,
-                } as React.CSSProperties
-              }
-            >
-              {node.label.split("\n").map((line) => (
-                <span key={line}>{line}</span>
-              ))}
-            </div>
-          ))}
+          {nodes.map((node) => {
+            const label = nodeLabels[locale][node.id];
+
+            return (
+              <div
+                className={`network-node node-${node.kind} ${
+                  activeNodes.has(node.id) ? "active" : ""
+                }`}
+                key={node.id}
+                style={
+                  {
+                    left: `${node.x}%`,
+                    top: `${node.y}%`,
+                    "--path-color": selected.color,
+                  } as React.CSSProperties
+                }
+              >
+                {label.split("\n").map((line) => (
+                  <span key={line}>{line}</span>
+                ))}
+              </div>
+            );
+          })}
           <div className="network-caption" aria-live="polite">
-            <span>{selected.eyebrow} pathway</span>
-            <p>{selected.summary}</p>
+            <span>
+              {selected.eyebrow}{" "}
+              {locale === "es" ? "· línea de investigación" : "pathway"}
+            </span>
+            <p>{selectedCopy.summary}</p>
           </div>
         </div>
       </div>
 
       <div className="network-mobile" aria-live="polite">
-        <p>{selected.summary}</p>
+        <p>{selectedCopy.summary}</p>
         <ol>
           {selected.chain.map((id, index) => (
             <li key={id}>
               <span>{String(index + 1).padStart(2, "0")}</span>
-              {nodeById[id].label.replace("\n", " ")}
+              {nodeLabels[locale][id].replace("\n", " ")}
             </li>
           ))}
         </ol>

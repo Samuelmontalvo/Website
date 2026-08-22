@@ -169,12 +169,39 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  justify-self: end;
   padding: 11px 15px;
   border: 1px solid var(--ink);
   font-size: 12px;
   font-weight: 650;
   transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: 8px;
+}
+
+.language-switch {
+  display: grid;
+  min-width: 42px;
+  min-height: 38px;
+  place-items: center;
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.5);
+  color: var(--cardinal);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.language-switch:hover,
+.language-switch:focus-visible {
+  border-color: var(--cardinal);
+  background: var(--white);
 }
 
 .nav-contact:hover,

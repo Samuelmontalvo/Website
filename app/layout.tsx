@@ -20,6 +20,13 @@ export const metadata: Metadata = {
   },
   description:
     "Clinical exercise physiology, biomechanics, multi-omics, and research tools for personalized exercise medicine.",
+  alternates: {
+    canonical: "/",
+    languages: {
+      en: "/",
+      es: "/es",
+    },
+  },
   keywords: [
     "personalized exercise medicine",
     "exercise physiology",
@@ -33,7 +40,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "Samuel Montalvo, PhD | Personalized Exercise Medicine",
     description:
-      "Building the evidence and tools for personalized exercise medicine—from molecules to movement.",
+      "Research on individual responses to exercise, with tools for physiology, biomechanics, and multi-omics.",
     url: "https://www.samuelmontalvo.com",
     siteName: "Samuel Montalvo, PhD",
     images: [
@@ -41,7 +48,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1536,
         height: 1024,
-        alt: "Samuel Montalvo — Personalized exercise medicine from molecules to movement",
+        alt: "Samuel Montalvo personal research website preview",
       },
     ],
   },
@@ -49,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Samuel Montalvo, PhD | Personalized Exercise Medicine",
     description:
-      "Building the evidence and tools for personalized exercise medicine—from molecules to movement.",
+      "Research on individual responses to exercise, with tools for physiology, biomechanics, and multi-omics.",
     images: ["/og.png"],
   },
   icons: {
