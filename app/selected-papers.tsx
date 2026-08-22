@@ -14,15 +14,15 @@ type SelectedPaper = {
   title: string;
   journal: string;
   href: string;
-  image: string;
-  imageWidth: number;
-  imageHeight: number;
-  figureHref: string;
-  figureLabel: LocalizedText;
+  image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  figureHref?: string;
+  figureLabel?: LocalizedText;
   figureCredit: string;
-  license: string;
-  licenseHref: string;
-  unchanged?: boolean;
+  license?: string;
+  licenseHref?: string;
+  originalVisual?: boolean;
   focus: LocalizedText;
   summary: LocalizedText;
   imageAlt: LocalizedText;
@@ -148,16 +148,9 @@ const selectedPapers: SelectedPaper[] = [
       "Design and Rationale of the My Heart Counts Cardiovascular Health Study: A Large-Scale, Fully Digital Biobank, and Randomized Trial of Large Language Model-Driven Coaching of Physical Activity",
     journal: "American Journal of Preventive Cardiology · Schmiedmayer et al.",
     href: "https://pubmed.ncbi.nlm.nih.gov/42395096/",
-    image: "/selected-papers/my-heart-counts-figure-1.jpg",
-    imageWidth: 791,
-    imageHeight: 422,
-    figureHref: "https://pmc.ncbi.nlm.nih.gov/articles/PMC13325983/#fig0001",
-    figureLabel: { en: "Figure 1", es: "Figura 1" },
     figureCredit:
       "Schmiedmayer et al., American Journal of Preventive Cardiology (2026)",
-    license: "CC BY-NC-ND 4.0",
-    licenseHref: "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-    unchanged: true,
+    originalVisual: true,
     focus: {
       en: "Digital health · Language-model coaching",
       es: "Salud digital · Orientación con modelos de lenguaje",
@@ -209,7 +202,7 @@ const selectedCopy = {
       "I chose these papers because together they show the connections among my vascular and performance work, clinical testing, athlete ECG, digital health, and MoTrPAC multi-omics.",
     figureAction: "Open the full figure",
     reproduced: "reproduced from",
-    unchanged: "reproduced without modification from",
+    original: "Original visual summary based on",
     licenseConnector: "under",
     paperAction: "View paper",
     archiveAction: "Browse the complete publication record",
@@ -221,7 +214,7 @@ const selectedCopy = {
       "Estos artículos reúnen las líneas principales de mi investigación: fisiología vascular y del rendimiento, evaluación clínica, ECG en deportistas, salud digital y multiómica de MoTrPAC.",
     figureAction: "Abrir la figura completa",
     reproduced: "reproducida de",
-    unchanged: "reproducida sin modificaciones de",
+    original: "Resumen visual original basado en",
     licenseConnector: "bajo",
     paperAction: "Ver artículo",
     archiveAction: "Consultar el registro completo de publicaciones",
@@ -245,34 +238,67 @@ export function SelectedPapers({ locale }: { locale: Locale }) {
         {selectedPapers.map((paper) => (
           <article className="selected-paper-card" key={paper.id}>
             <figure className="selected-paper-figure">
-              <a
-                href={paper.figureHref}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`${copy.figureAction}: ${paper.figureLabel[locale]}`}
-              >
-                {/* These credited research figures are local, lazy-loaded assets with fixed dimensions. */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={paper.image}
-                  alt={paper.imageAlt[locale]}
-                  width={paper.imageWidth}
-                  height={paper.imageHeight}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-              <figcaption>
-                <a href={paper.figureHref} target="_blank" rel="noreferrer">
-                  {paper.figureLabel[locale]}
-                </a>{" "}
-                {paper.unchanged ? copy.unchanged : copy.reproduced}{" "}
-                {paper.figureCredit}{" "}
-                {copy.licenseConnector}{" "}
-                <a href={paper.licenseHref} target="_blank" rel="noreferrer">
-                  {paper.license}
+              {paper.originalVisual ? (
+                <div
+                  className="selected-paper-original-visual"
+                  role="img"
+                  aria-label={paper.imageAlt[locale]}
+                >
+                  <div className="digital-inputs">
+                    <span>{locale === "es" ? "Dispositivos" : "Wearables"}</span>
+                    <span>{locale === "es" ? "Datos clínicos" : "Clinical data"}</span>
+                    <span>{locale === "es" ? "Encuestas" : "Surveys"}</span>
+                  </div>
+                  <div className="digital-phone">
+                    <small>My Heart Counts</small>
+                    <strong>{locale === "es" ? "Biobanco digital" : "Digital biobank"}</strong>
+                    <i aria-hidden="true" />
+                  </div>
+                  <div className="digital-outputs">
+                    <span>{locale === "es" ? "Orientación con LLM" : "LLM coaching"}</span>
+                    <span>{locale === "es" ? "Inglés + español" : "English + Spanish"}</span>
+                  </div>
+                </div>
+              ) : (
+                <a
+                  href={paper.figureHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${copy.figureAction}: ${paper.figureLabel?.[locale]}`}
+                >
+                  {/* These credited research figures are local, lazy-loaded assets with fixed dimensions. */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={paper.image}
+                    alt={paper.imageAlt[locale]}
+                    width={paper.imageWidth}
+                    height={paper.imageHeight}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </a>
-                .
+              )}
+              <figcaption>
+                {paper.originalVisual ? (
+                  <>
+                    {copy.original}{" "}
+                    <a href={paper.href} target="_blank" rel="noreferrer">
+                      {paper.figureCredit}
+                    </a>
+                    .
+                  </>
+                ) : (
+                  <>
+                    <a href={paper.figureHref} target="_blank" rel="noreferrer">
+                      {paper.figureLabel?.[locale]}
+                    </a>{" "}
+                    {copy.reproduced} {paper.figureCredit} {copy.licenseConnector}{" "}
+                    <a href={paper.licenseHref} target="_blank" rel="noreferrer">
+                      {paper.license}
+                    </a>
+                    .
+                  </>
+                )}
               </figcaption>
             </figure>
 

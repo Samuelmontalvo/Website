@@ -146,7 +146,6 @@ test("ships site-specific metadata and accessible assets", async () => {
       "resisted-sprint-figure-1.jpg",
       "nmd-cpet-recovery-figure-1.jpg",
       "athlete-ecg-central-illustration.jpg",
-      "my-heart-counts-figure-1.jpg",
       "carotid-shear-stress-figure-3.jpg",
     ].map((filename) =>
       access(new URL(`../public/selected-papers/${filename}`, import.meta.url)),
