@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     absolute: "Samuel Montalvo, PhD | Medicina del ejercicio personalizada",
   },
   description:
-    "Investigación sobre las respuestas individuales al ejercicio y herramientas para fisiología, biomecánica y multiómica.",
+    "Investigación en MoTrPAC, rendimiento deportivo, CPET, ECG, fisiología clínica del ejercicio y herramientas con IA.",
   alternates: {
     canonical: "/es",
     languages: {
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Samuel Montalvo, PhD | Medicina del ejercicio personalizada",
     description:
-      "Investigación sobre las respuestas individuales al ejercicio y herramientas para fisiología, biomecánica y multiómica.",
+      "Investigación en MoTrPAC, rendimiento deportivo, CPET, ECG, fisiología clínica del ejercicio y herramientas con IA.",
     url: "https://www.samuelmontalvo.com/es",
   },
   twitter: {
     title: "Samuel Montalvo, PhD | Medicina del ejercicio personalizada",
     description:
-      "Investigación sobre las respuestas individuales al ejercicio y herramientas para fisiología, biomecánica y multiómica.",
+      "Investigación en MoTrPAC, rendimiento deportivo, CPET, ECG, fisiología clínica del ejercicio y herramientas con IA.",
   },
 };
 

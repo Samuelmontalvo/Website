@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | Samuel Montalvo, PhD",
   },
   description:
-    "Clinical exercise physiology, biomechanics, multi-omics, and research tools for personalized exercise medicine.",
+    "Research across MoTrPAC, sports performance, CPET, ECG, clinical exercise physiology, and AI-enabled tools.",
   alternates: {
     canonical: "/",
     languages: {
@@ -32,6 +32,11 @@ export const metadata: Metadata = {
     "exercise physiology",
     "multi-omics",
     "biomechanics",
+    "MoTrPAC",
+    "CPET",
+    "ECG",
+    "sports performance",
+    "AI research tools",
     "Stanford",
     "Samuel Montalvo",
   ],
@@ -40,7 +45,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "Samuel Montalvo, PhD | Personalized Exercise Medicine",
     description:
-      "Research on individual responses to exercise, with tools for physiology, biomechanics, and multi-omics.",
+      "Research across MoTrPAC, sports performance, CPET, ECG, clinical exercise physiology, and AI-enabled tools.",
     url: "https://www.samuelmontalvo.com",
     siteName: "Samuel Montalvo, PhD",
     images: [
@@ -56,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Samuel Montalvo, PhD | Personalized Exercise Medicine",
     description:
-      "Research on individual responses to exercise, with tools for physiology, biomechanics, and multi-omics.",
+      "Research across MoTrPAC, sports performance, CPET, ECG, clinical exercise physiology, and AI-enabled tools.",
     images: ["/og.png"],
   },
   icons: {

@@ -35,6 +35,14 @@ test("server-renders the finished research profile", async () => {
   );
   assert.match(html, /I study why people respond/);
   assert.match(html, /differently to exercise/);
+  assert.match(html, /MoTrPAC/);
+  assert.match(html, /High-performance sport/);
+  assert.match(html, /Cardiopulmonary exercise testing/);
+  assert.match(html, /ECG and sports cardiology/);
+  assert.match(html, /Clinical populations/);
+  assert.match(html, /AI agents and apps/);
+  assert.match(html, /Stanford Baseball/);
+  assert.match(html, /vascular physiology related to stroke risk/);
   assert.match(html, /Metabo-Diet/);
   assert.match(html, /Vertical Jump Atlas/);
   assert.match(html, /Open the atlas/);
@@ -62,6 +70,7 @@ test("server-renders the finished research profile", async () => {
   assert.match(html, /href="\/es"[^>]+aria-label="View site in Spanish"/);
   assert.doesNotMatch(html, /One person\. Many signals\. One connected picture\./);
   assert.doesNotMatch(html, /Research you can use\./);
+  assert.doesNotMatch(html, /MetaboDiet|JumpLab|OpenCPET/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
   assert.doesNotMatch(html, /github\.com\/Samuelmontalvo\/stanford-cpet-app/i);
   assert.doesNotMatch(html, /drive\.google\.com\/file\/d\/1TJOMkD6/);
@@ -79,7 +88,12 @@ test("serves a complete Spanish translation with an English switch", async () =>
   assert.match(html, /<main lang="es">/);
   assert.match(html, /Estudio por qué cada persona responde/);
   assert.match(html, /de manera distinta al ejercicio/);
-  assert.match(html, /Software para investigación y enseñanza/);
+  assert.match(html, /Alto rendimiento deportivo/);
+  assert.match(html, /Prueba cardiopulmonar de ejercicio/);
+  assert.match(html, /ECG y cardiología deportiva/);
+  assert.match(html, /Poblaciones clínicas/);
+  assert.match(html, /Agentes de IA y aplicaciones/);
+  assert.match(html, /Software para investigación, docencia y análisis/);
   assert.match(html, /Publicaciones revisadas por pares/);
   assert.match(html, /Formación académica y posdoctoral/);
   assert.match(html, /href="\/"[^>]+aria-label="Ver sitio en inglés"/);

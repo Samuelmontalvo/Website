@@ -1,4 +1,4 @@
-import { ResearchNetwork } from "./research-network";
+import { ProjectAreas } from "./project-areas";
 import { publicationGroups, totalPublicationCount } from "./publications-data";
 
 const externalIcon = (
@@ -21,8 +21,8 @@ const pageCopy = {
     mainNav: "Main navigation",
     homeLabel: "Samuel Montalvo home",
     nav: {
-      research: "Research",
-      tools: "Tools",
+      research: "Projects",
+      tools: "Agents & apps",
       publications: "Publications",
       education: "Education",
       about: "About",
@@ -34,27 +34,35 @@ const pageCopy = {
       title: "I study why people respond",
       titleAccent: "differently to exercise.",
       intro:
-        "My work combines clinical exercise physiology, biomechanics, multi-omics, and software. I use these approaches to study individual responses to physical activity and improve how exercise is measured and prescribed.",
-      primary: "View my research",
-      secondary: "View the tools",
-      domainsLabel: "Research domains",
-      domains: ["Metabolism", "Biomechanics", "Multi-omics", "Digital health"],
+        "My work spans MoTrPAC multi-omics, high-performance sport, CPET, ECG, clinical exercise research, and AI agents and apps. Across these projects, I use physiology, biomechanics, molecular data, and software to study how people respond to exercise.",
+      primary: "View my projects",
+      secondary: "View agents & apps",
+      domainsLabel: "Project areas",
+      domains: [
+        "MoTrPAC",
+        "High performance",
+        "CPET",
+        "ECG",
+        "Clinical research",
+        "AI agents + apps",
+      ],
       roles: "Clinical exercise physiologist · Sport scientist · Biomechanist",
       profile: "Stanford profile",
     },
     research: {
-      eyebrow: "Research framework",
-      title: "Exercise response depends on more than one measurement.",
+      eyebrow: "Current projects",
+      title: "My projects span molecular, clinical, and performance research.",
       intro:
-        "I study how movement, physiology, metabolism, and molecular signals change together with exercise. This diagram shows how those questions connect across my projects.",
-      note:
-        "This diagram maps the questions I study. The connections are hypotheses, not established causal relationships.",
+        "At Stanford and with external collaborators, I work across six connected areas. Each uses exercise to study health, adaptation, or performance.",
+      profileNote:
+        "Appointments, awards, and additional research details are available on my Stanford profile.",
+      profileAction: "View Stanford profile",
     },
     tools: {
-      eyebrow: "Research tools",
-      title: "Software for research and teaching.",
+      eyebrow: "AI agents and research apps",
+      title: "Software for research, teaching, and analysis.",
       intro:
-        "These projects grew out of specific needs in my research and teaching: comparing evidence, analyzing movement, reviewing physiology data, and preparing for certification exams.",
+        "I build agents and apps for specific needs in my research and teaching: reviewing evidence, analyzing movement and physiology, organizing data, and preparing for certification exams.",
     },
     question: {
       eyebrow: "The question behind my work",
@@ -106,7 +114,7 @@ const pageCopy = {
       lead:
         "I am a Postdoctoral Scholar in Cardiovascular Medicine at Stanford University. I also work with the Stanford Bioinformatics Core and the Wu Tsai Human Performance Alliance.",
       body:
-        "In MoTrPAC, an NIH-funded consortium, I analyze clinical and molecular data from multiple tissues, exercise modes, and species. The goal is to study mechanisms and biomarkers of exercise response. My other collaborations include sports cardiology, CPET, neuromuscular disease, and athlete performance.",
+        "In MoTrPAC, an NIH-funded consortium, I analyze clinical and molecular data from multiple tissues, exercise modes, and species. My other work includes high-performance sport, CPET, sports cardiology and ECG, neuromuscular disease, vascular physiology related to stroke risk, and AI-enabled research tools.",
       heritage:
         "Inclusive mentorship is part of my work as a first-generation Mexican American scientist with Indigenous heritage. I also build practical tools to make rigorous exercise science easier to learn and use.",
       imageAlt:
@@ -118,7 +126,7 @@ const pageCopy = {
       eyebrow: "Contact",
       title: "Interested in working together?",
       body:
-        "I am open to collaborations in multi-omics, clinical exercise physiology, sports science, digital health, and research software.",
+        "I am open to collaborations in MoTrPAC and multi-omics, high-performance sport, CPET, ECG, clinical exercise physiology, and research software.",
       consulting: "Ask about consulting",
     },
     footer: {
@@ -132,8 +140,8 @@ const pageCopy = {
     mainNav: "Navegación principal",
     homeLabel: "Inicio de Samuel Montalvo",
     nav: {
-      research: "Investigación",
-      tools: "Herramientas",
+      research: "Proyectos",
+      tools: "Agentes y apps",
       publications: "Publicaciones",
       education: "Formación",
       about: "Sobre mí",
@@ -145,27 +153,35 @@ const pageCopy = {
       title: "Estudio por qué cada persona responde",
       titleAccent: "de manera distinta al ejercicio.",
       intro:
-        "Mi trabajo combina fisiología clínica del ejercicio, biomecánica, multiómica y software. Uso estos enfoques para estudiar las respuestas individuales a la actividad física y mejorar la forma en que medimos y prescribimos el ejercicio.",
-      primary: "Ver mi investigación",
-      secondary: "Ver las herramientas",
-      domainsLabel: "Áreas de investigación",
-      domains: ["Metabolismo", "Biomecánica", "Multiómica", "Salud digital"],
+        "Mi trabajo abarca la multiómica de MoTrPAC, el alto rendimiento deportivo, CPET, ECG, la investigación clínica del ejercicio y agentes y aplicaciones de IA. En estos proyectos uso fisiología, biomecánica, datos moleculares y software para estudiar cómo responden las personas al ejercicio.",
+      primary: "Ver mis proyectos",
+      secondary: "Ver agentes y apps",
+      domainsLabel: "Áreas de proyectos",
+      domains: [
+        "MoTrPAC",
+        "Alto rendimiento",
+        "CPET",
+        "ECG",
+        "Investigación clínica",
+        "Agentes de IA + apps",
+      ],
       roles: "Fisiólogo clínico del ejercicio · Científico del deporte · Biomecánico",
       profile: "Perfil de Stanford",
     },
     research: {
-      eyebrow: "Marco de investigación",
-      title: "La respuesta al ejercicio depende de más de una medición.",
+      eyebrow: "Proyectos actuales",
+      title: "Mis proyectos abarcan investigación molecular, clínica y de rendimiento.",
       intro:
-        "Estudio cómo cambian en conjunto el movimiento, la fisiología, el metabolismo y las señales moleculares con el ejercicio. Este diagrama muestra cómo se conectan esas preguntas en mis proyectos.",
-      note:
-        "Este diagrama organiza las preguntas que estudio. Las conexiones son hipótesis, no relaciones causales demostradas.",
+        "En Stanford y con colaboradores externos, trabajo en seis áreas conectadas. En todas utilizo el ejercicio para estudiar la salud, la adaptación o el rendimiento.",
+      profileNote:
+        "Mi perfil de Stanford incluye mis nombramientos, premios y otros detalles de investigación.",
+      profileAction: "Ver perfil de Stanford",
     },
     tools: {
-      eyebrow: "Herramientas de investigación",
-      title: "Software para investigación y enseñanza.",
+      eyebrow: "Agentes de IA y aplicaciones de investigación",
+      title: "Software para investigación, docencia y análisis.",
       intro:
-        "Estos proyectos nacieron de necesidades concretas en mi investigación y docencia: comparar evidencia, analizar el movimiento, revisar datos fisiológicos y prepararse para exámenes de certificación.",
+        "Desarrollo agentes y aplicaciones para necesidades concretas de mi investigación y docencia: revisar evidencia, analizar el movimiento y la fisiología, organizar datos y prepararse para exámenes de certificación.",
     },
     question: {
       eyebrow: "La pregunta detrás de mi trabajo",
@@ -217,7 +233,7 @@ const pageCopy = {
       lead:
         "Soy investigador posdoctoral en Medicina Cardiovascular de Stanford University. También colaboro con el Stanford Bioinformatics Core y la Wu Tsai Human Performance Alliance.",
       body:
-        "En MoTrPAC, un consorcio financiado por los NIH, analizo datos clínicos y moleculares de varios tejidos, modalidades de ejercicio y especies. El objetivo es estudiar los mecanismos y biomarcadores de la respuesta al ejercicio. También colaboro en cardiología deportiva, CPET, enfermedades neuromusculares y rendimiento deportivo.",
+        "En MoTrPAC, un consorcio financiado por los NIH, analizo datos clínicos y moleculares de varios tejidos, modalidades de ejercicio y especies. Mi trabajo también incluye alto rendimiento deportivo, CPET, cardiología deportiva y ECG, enfermedades neuromusculares, fisiología vascular relacionada con el riesgo de accidente cerebrovascular y herramientas de investigación con IA.",
       heritage:
         "La mentoría inclusiva forma parte de mi trabajo como científico mexicoamericano de primera generación con raíces indígenas. También desarrollo herramientas prácticas para que la ciencia rigurosa del ejercicio sea más fácil de aprender y utilizar.",
       imageAlt:
@@ -229,7 +245,7 @@ const pageCopy = {
       eyebrow: "Contacto",
       title: "¿Le interesa trabajar conmigo?",
       body:
-        "Estoy abierto a colaboraciones en multiómica, fisiología clínica del ejercicio, ciencias del deporte, salud digital y software de investigación.",
+        "Estoy abierto a colaboraciones en MoTrPAC y multiómica, alto rendimiento deportivo, CPET, ECG, fisiología clínica del ejercicio y software de investigación.",
       consulting: "Consultoría",
     },
     footer: {
@@ -552,7 +568,7 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
           <strong>Samuel Montalvo, PhD</strong>
         </a>
         <div className="nav-links">
-          <a href="#research">{copy.nav.research}</a>
+          <a href="#projects">{copy.nav.research}</a>
           <a href="#tools">{copy.nav.tools}</a>
           <a href="#publications">{copy.nav.publications}</a>
           <a href="#education">{copy.nav.education}</a>
@@ -591,7 +607,7 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
           </h1>
           <p className="hero-intro">{copy.hero.intro}</p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#research">
+            <a className="button button-primary" href="#projects">
               {copy.hero.primary} {arrowIcon}
             </a>
             <a className="button button-secondary" href="#tools">
@@ -633,7 +649,7 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
         </aside>
       </header>
 
-      <section className="research-section section-shell" id="research">
+      <section className="research-section section-shell" id="projects">
         <div className="section-heading split-heading">
           <div>
             <span className="eyebrow">{copy.research.eyebrow}</span>
@@ -641,8 +657,17 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
           </div>
           <p>{copy.research.intro}</p>
         </div>
-        <ResearchNetwork locale={locale} />
-        <p className="framework-note">{copy.research.note}</p>
+        <ProjectAreas locale={locale} />
+        <div className="project-profile-note">
+          <span>{copy.research.profileNote}</span>
+          <a
+            href="https://profiles.stanford.edu/samuel-montalvo-hernandez"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {copy.research.profileAction} {externalIcon}
+          </a>
+        </div>
       </section>
 
       <section className="tools-section" id="tools">
