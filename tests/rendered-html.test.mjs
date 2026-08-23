@@ -48,6 +48,7 @@ test("server-renders the finished research profile", async () => {
   assert.match(html, /Cataloging MoTrPAC and Metabolomics Workbench Data/);
   assert.match(html, /The Molecular Elite Athlete/);
   assert.match(html, /Pablo Tadeo Ríos Gallardo/);
+  assert.match(html, /Senior Editor, Journal of Strength and Conditioning Research/);
   assert.match(html, /Journal of Taiji Science/);
   assert.match(html, /eprints\.uanl\.mx\/31086/);
   assert.match(html, /Our critical review of sleep and muscle hypertrophy/);
@@ -143,7 +144,7 @@ test("serves a complete Spanish translation with an English switch", async () =>
   assert.match(html, /samuel-montalvo-cv-es\.pdf/);
   assert.match(html, /LRP-REACH y beca TIMBS/);
   assert.match(html, /Propuesta de formación seleccionada/);
-  assert.match(html, /Editor de sección y codirector de tesis/);
+  assert.match(html, /Editor sénior, Journal of Strength and Conditioning Research/);
   assert.match(html, /Nuestra revisión crítica sobre el sueño y la hipertrofia muscular/);
   assert.match(html, /Código y flujos de trabajo reproducibles/);
   assert.match(html, /href="\/"[^>]+aria-label="EN · Ver sitio en inglés"/);
