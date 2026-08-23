@@ -193,6 +193,9 @@ test("ships site-specific metadata and accessible assets", async () => {
   assert.equal((publicationData.match(/"href":/g) ?? []).length, 95);
   assert.equal((publicationData.match(/"label": "PubMed"/g) ?? []).length, 38);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
+  assert.match(styles, /\.selected-papers-heading h2\s*\{[^}]*font-family:\s*var\(--serif\)[^}]*line-height:\s*1;/s);
+  assert.match(styles, /font-size:\s*clamp\(45px,\s*13vw,\s*58px\)/);
+  assert.match(styles, /font-size:\s*clamp\(38px,\s*10\.8vw,\s*46px\)/);
   assert.doesNotMatch(styles, /\.translation-section|\.translation-steps/);
   assert.match(styles, /\.publication-source/);
 

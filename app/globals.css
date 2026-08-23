@@ -1635,7 +1635,12 @@ svg {
 
 .selected-papers-heading h2 {
   max-width: 760px;
+  margin: 18px 0 0;
+  font-family: var(--serif);
   font-size: clamp(44px, 5vw, 68px);
+  font-weight: 400;
+  letter-spacing: -0.048em;
+  line-height: 1;
 }
 
 .selected-papers-heading > p {
@@ -2604,12 +2609,13 @@ svg {
 
   .hero h1 {
     margin-top: 26px;
-    font-size: clamp(47px, 14.6vw, 66px);
-    line-height: 0.97;
+    font-size: clamp(45px, 13vw, 58px);
+    line-height: 0.98;
   }
 
   .hero-intro {
-    font-size: 17px;
+    font-size: 16px;
+    line-height: 1.58;
   }
 
   .hero-actions,
@@ -2644,7 +2650,8 @@ svg {
   .selected-papers-heading h2,
   .publication-intro h2,
   .about-copy h2 {
-    font-size: clamp(39px, 12.5vw, 54px);
+    font-size: clamp(38px, 10.8vw, 46px);
+    line-height: 1.02;
   }
 
   .project-grid {
