@@ -958,6 +958,16 @@ svg {
   min-height: 402px;
 }
 
+.tool-card-media:not(.tool-atlas) {
+  grid-template-columns: 1fr;
+  min-height: 688px;
+}
+
+.tool-card-media:not(.tool-atlas) .tool-copy {
+  min-height: 340px;
+  padding-top: 48px;
+}
+
 .tool-topline {
   position: absolute;
   top: 22px;
@@ -1068,6 +1078,93 @@ svg {
   inset: 0;
   content: "";
   background: linear-gradient(90deg, rgba(20, 54, 50, 0.45), transparent 30%);
+}
+
+.tool-product-figure {
+  position: relative;
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+  margin: 0;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: #102824;
+}
+
+.tool-product-figure::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  background:
+    linear-gradient(180deg, rgba(5, 21, 19, 0.7) 0, transparent 24%),
+    linear-gradient(0deg, rgba(5, 21, 19, 0.9) 0, transparent 38%);
+  pointer-events: none;
+}
+
+.tool-product-figure img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.tool-card:hover .tool-product-figure img {
+  transform: scale(1.018);
+}
+
+.tool-product-figure figcaption {
+  position: absolute;
+  right: 22px;
+  bottom: 18px;
+  left: 22px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: rgba(255, 253, 248, 0.76);
+}
+
+.tool-product-figure figcaption span {
+  color: var(--tool-accent);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tool-product-figure figcaption strong {
+  color: #fffdf8;
+  font-size: 10px;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.tool-product-figure-atlas {
+  min-height: 402px;
+  aspect-ratio: auto;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 0;
+}
+
+.tool-product-figure-atlas img {
+  object-fit: contain;
+  object-position: 50% 50%;
+}
+
+.tool-product-figure-atlas figcaption {
+  bottom: 70px;
+}
+
+.tool-product-figure-metabo img {
+  object-position: 50% 50%;
+}
+
+.tool-product-figure-flightlab img {
+  object-position: 50% 50%;
 }
 
 .atlas-visual {
@@ -2425,6 +2522,25 @@ svg {
     grid-template-columns: minmax(0, 0.9fr) minmax(260px, 1.1fr);
   }
 
+  .tool-atlas.tool-card-media {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-atlas .tool-product-figure {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .tool-atlas .tool-product-figure img {
+    object-fit: cover;
+  }
+
+  .tool-atlas .tool-product-figure figcaption {
+    bottom: 18px;
+  }
+
   .publication-layout {
     gap: 48px;
   }
@@ -2588,6 +2704,14 @@ svg {
   .tool-card {
     grid-template-columns: 1fr;
     min-height: 575px;
+  }
+
+  .tool-card-media:not(.tool-atlas) {
+    min-height: 575px;
+  }
+
+  .tool-card-media:not(.tool-atlas) .tool-copy {
+    min-height: 355px;
   }
 
   .tool-atlas {

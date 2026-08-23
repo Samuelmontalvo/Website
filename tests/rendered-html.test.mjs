@@ -60,6 +60,12 @@ test("server-renders the finished research profile", async () => {
   assert.match(html, /Metabo-Diet/);
   assert.match(html, /Vertical Jump Atlas/);
   assert.match(html, /Open the atlas/);
+  assert.match(html, /tools\/vertical-jump-atlas\.jpg/);
+  assert.match(html, /Forest plot and pooled cohort estimate/);
+  assert.match(html, /tools\/metabo-diet-harmonization\.jpg/);
+  assert.match(html, /Auditable harmonization with RefMet/);
+  assert.match(html, /tools\/flightlab-evidence-review\.jpg/);
+  assert.match(html, /Evidence review before saving/);
   assert.match(
     html,
     /takeoff-jump-atlas\.samuelmontalvo\.chatgpt\.site\/#sport-norms/,
@@ -76,7 +82,7 @@ test("server-renders the finished research profile", async () => {
   assert.match(html, /Sex-Specific Electrocardiographic Criteria for Left Ventricular Hypertrophy/);
   assert.match(html, /9,254 athletes/);
   assert.equal((html.match(/class="selected-paper-card"/g) ?? []).length, 6);
-  assert.equal((html.match(/<figcaption>/g) ?? []).length, 6);
+  assert.equal((html.match(/<figcaption>/g) ?? []).length, 9);
   assert.match(html, /id="complete-publication-record"/);
   assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/42164870/);
   assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/40837520/);
@@ -147,6 +153,9 @@ test("serves a complete Spanish translation with an English switch", async () =>
   assert.match(html, /Editor sénior, Journal of Strength and Conditioning Research/);
   assert.match(html, /Nuestra revisión crítica sobre el sueño y la hipertrofia muscular/);
   assert.match(html, /Código y flujos de trabajo reproducibles/);
+  assert.match(html, /Diagrama de bosque y estimación combinada/);
+  assert.match(html, /Armonización auditable con RefMet/);
+  assert.match(html, /Revisión de evidencia antes de guardar/);
   assert.match(html, /href="\/"[^>]+aria-label="EN · Ver sitio en inglés"/);
   assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/42580351/);
   assert.match(html, /rel="alternate" hrefLang="es" href="https:\/\/www\.samuelmontalvo\.com\/es"/i);
@@ -178,6 +187,7 @@ test("ships site-specific metadata and accessible assets", async () => {
   assert.match(page, /className="skip-link"/);
   assert.match(page, /Portrait of Samuel Montalvo/);
   assert.match(page, /className="language-switch"/);
+  assert.doesNotMatch(page, /atlas-grid|ring-one|jump-person/);
   assert.match(spanishPage, /PortfolioPage locale="es"/);
   assert.equal((publicationData.match(/"citation":/g) ?? []).length, 95);
   assert.equal((publicationData.match(/"href":/g) ?? []).length, 95);
@@ -188,6 +198,9 @@ test("ships site-specific metadata and accessible assets", async () => {
 
   await access(new URL("../public/og.png", import.meta.url));
   await access(new URL("../public/samuel-montalvo-800.jpg", import.meta.url));
+  await access(new URL("../public/tools/vertical-jump-atlas.jpg", import.meta.url));
+  await access(new URL("../public/tools/metabo-diet-harmonization.jpg", import.meta.url));
+  await access(new URL("../public/tools/flightlab-evidence-review.jpg", import.meta.url));
   await access(new URL("../public/samuel-montalvo-480.jpg", import.meta.url));
   await access(new URL("../public/samuel-montalvo-cv.pdf", import.meta.url));
   await access(new URL("../public/samuel-montalvo-cv-es.pdf", import.meta.url));

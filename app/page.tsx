@@ -285,31 +285,28 @@ const tools = [
     href: "https://takeoff-jump-atlas.samuelmontalvo.chatgpt.site/#sport-norms",
     action: "Open the atlas",
     theme: "atlas",
+    media: true,
     visual: (locale: Locale) => (
-      <div className="tool-visual atlas-visual" aria-hidden="true">
-        <span className="atlas-grid" />
-        <span className="atlas-kicker">
-          {locale === "es"
-            ? "Valores de referencia por protocolo de salto"
-            : "Reference values by jump protocol"}
-        </span>
-        <span className="atlas-scale scale-zero">LOW</span>
-        <span className="atlas-scale scale-thirty">MID</span>
-        <span className="atlas-scale scale-sixty">HIGH</span>
-        <span className="atlas-bar atlas-bar-a"><i>CMJ</i></span>
-        <span className="atlas-bar atlas-bar-b">
-          <i>{locale === "es" ? "CMJ + brazos" : "CMJ + arms"}</i>
-        </span>
-        <span className="atlas-bar atlas-bar-c"><i>SJ</i></span>
-        <span className="atlas-marker">
-          <i>{locale === "es" ? "Vista ilustrativa" : "Illustrative preview"}</i>
-        </span>
-        <span className="atlas-source">
-          {locale === "es"
-            ? "Abra el atlas para consultar los datos actuales"
-            : "Open the atlas for current data"}
-        </span>
-      </div>
+      <figure className="tool-product-figure tool-product-figure-atlas">
+        <img
+          src="/tools/vertical-jump-atlas.jpg"
+          width="1280"
+          height="720"
+          loading="lazy"
+          decoding="async"
+          alt={locale === "es"
+            ? "Interfaz de Vertical Jump Atlas con un diagrama de bosque filtrado y una estimación combinada para jugadores de voleibol"
+            : "Vertical Jump Atlas interface with a filtered forest plot and pooled estimate for volleyball players"}
+        />
+        <figcaption>
+          <span>{locale === "es" ? "Vista del producto" : "Product view"}</span>
+          <strong>
+            {locale === "es"
+              ? "Diagrama de bosque y estimación combinada"
+              : "Forest plot and pooled cohort estimate"}
+          </strong>
+        </figcaption>
+      </figure>
     ),
   },
   {
@@ -322,24 +319,28 @@ const tools = [
     href: "mailto:smontal@stanford.edu?subject=Metabo-Diet collaboration",
     action: "Ask about the project",
     theme: "clay",
+    media: true,
     visual: (locale: Locale) => (
-      <div className="tool-visual metabo-visual" aria-hidden="true">
-        <span className="ring ring-one" />
-        <span className="ring ring-two" />
-        <span className="ring ring-three" />
-        <span className="micro-dot dot-one" />
-        <span className="micro-dot dot-two" />
-        <span className="micro-dot dot-three" />
-        <span className="micro-label label-one">
-          {locale === "es" ? "alimentación" : "diet"}
-        </span>
-        <span className="micro-label label-two">
-          {locale === "es" ? "ómicas" : "omics"}
-        </span>
-        <span className="micro-label label-three">
-          {locale === "es" ? "fenotipo" : "phenotype"}
-        </span>
-      </div>
+      <figure className="tool-product-figure tool-product-figure-metabo">
+        <img
+          src="/tools/metabo-diet-harmonization.jpg"
+          width="1280"
+          height="720"
+          loading="lazy"
+          decoding="async"
+          alt={locale === "es"
+            ? "Interfaz del curso Metabo-Diet en la lección sobre armonización de metabolitos y metadatos"
+            : "Metabo-Diet course interface on the lesson about harmonizing metabolites and metadata"}
+        />
+        <figcaption>
+          <span>{locale === "es" ? "Vista del curso" : "Course view"}</span>
+          <strong>
+            {locale === "es"
+              ? "Armonización auditable con RefMet"
+              : "Auditable harmonization with RefMet"}
+          </strong>
+        </figcaption>
+      </figure>
     ),
   },
   {
@@ -352,25 +353,28 @@ const tools = [
     href: "https://flightlab-edu.netlify.app/",
     action: "Launch FlightLab EDU",
     theme: "moss",
+    media: true,
     visual: (locale: Locale) => (
-      <div className="tool-visual jump-visual" aria-hidden="true">
-        <span className="jump-axis" />
-        <span className="jump-person">
-          <i className="person-head" />
-          <i className="person-torso" />
-          <i className="person-arm arm-left" />
-          <i className="person-arm arm-right" />
-          <i className="person-leg leg-left" />
-          <i className="person-leg leg-right" />
-        </span>
-        <span className="jump-mark mark-top">
-          {locale === "es" ? "vuelo" : "flight"}
-        </span>
-        <span className="jump-mark mark-bottom">
-          {locale === "es" ? "aterrizaje" : "landing"}
-        </span>
-        <span className="jump-curve" />
-      </div>
+      <figure className="tool-product-figure tool-product-figure-flightlab">
+        <img
+          src="/tools/flightlab-evidence-review.jpg"
+          width="1280"
+          height="720"
+          loading="lazy"
+          decoding="async"
+          alt={locale === "es"
+            ? "Pantalla de revisión de evidencia de FlightLab EDU con una muestra de salto, una puntuación de calidad y revisión manual"
+            : "FlightLab EDU evidence-review screen with a sample jump, quality score, and manual review step"}
+        />
+        <figcaption>
+          <span>{locale === "es" ? "Vista del producto" : "Product view"}</span>
+          <strong>
+            {locale === "es"
+              ? "Revisión de evidencia antes de guardar"
+              : "Evidence review before saving"}
+          </strong>
+        </figcaption>
+      </figure>
     ),
   },
   {
@@ -383,6 +387,7 @@ const tools = [
     href: "https://exercise-science-exam-prep.netlify.app/",
     action: "Open Practice Lab",
     theme: "plum",
+    media: false,
     visual: (locale: Locale) => (
       <div className="tool-visual study-visual" aria-hidden="true">
         <span className="study-score">
@@ -846,7 +851,10 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
               const text = locale === "es" ? spanishToolCopy[tool.title] : tool;
 
               return (
-                <article className={`tool-card tool-${tool.theme}`} key={tool.title}>
+                <article
+                  className={`tool-card tool-${tool.theme}${tool.media ? " tool-card-media" : ""}`}
+                  key={tool.title}
+                >
                   <div className="tool-topline">
                     <span>{tool.number}</span>
                     <span className="status-pill">{text.status}</span>
