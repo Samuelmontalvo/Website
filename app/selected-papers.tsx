@@ -22,7 +22,7 @@ type SelectedPaper = {
   figureCredit: string;
   license?: string;
   licenseHref?: string;
-  originalVisual?: boolean;
+  originalVisual?: "digital" | "ecg";
   focus: LocalizedText;
   summary: LocalizedText;
   imageAlt: LocalizedText;
@@ -45,12 +45,12 @@ const selectedPapers: SelectedPaper[] = [
     license: "CC BY 4.0",
     licenseHref: "https://creativecommons.org/licenses/by/4.0/",
     focus: {
-      en: "MoTrPAC · Acute exercise multi-omics",
-      es: "MoTrPAC · Multiómica del ejercicio agudo",
+      en: "MoTrPAC · Acute exercise multi-omics · Preprint",
+      es: "MoTrPAC · Multiómica del ejercicio agudo · Preprint",
     },
     summary: {
-      en: "This MoTrPAC paper connects whole-body exercise testing with molecular responses measured across blood, muscle, and adipose tissue.",
-      es: "Este trabajo de MoTrPAC conecta la evaluación integral del ejercicio con respuestas moleculares medidas en sangre, músculo y tejido adiposo.",
+      en: "This preprint maps acute molecular responses in blood, skeletal muscle, and adipose tissue after endurance and resistance exercise.",
+      es: "Este preprint describe respuestas moleculares agudas en sangre, músculo esquelético y tejido adiposo después de ejercicio de resistencia y fuerza.",
     },
     imageAlt: {
       en: "Heatmaps and plots showing exercise-induced molecular changes across blood, skeletal muscle, and adipose tissue.",
@@ -77,8 +77,8 @@ const selectedPapers: SelectedPaper[] = [
       es: "Rendimiento deportivo · Sprint con resistencia",
     },
     summary: {
-      en: "My performance research asks how specific training methods change speed, power, force, and jumping in athletes.",
-      es: "Mi investigación en rendimiento estudia cómo métodos concretos de entrenamiento cambian la velocidad, la potencia, la fuerza y el salto.",
+      en: "Resisted sprint training improved overground sprinting, jump performance, and force-time measures in male youth hockey players.",
+      es: "El entrenamiento de sprint con resistencia mejoró la carrera en superficie, el salto y las medidas de fuerza-tiempo en jugadores juveniles de hockey.",
     },
     imageAlt: {
       en: "Before-and-after plots for jump height, peak force, peak power, and broad jump distance in three youth hockey training groups.",
@@ -106,7 +106,7 @@ const selectedPapers: SelectedPaper[] = [
     },
     summary: {
       en: "In this clinical study, recovery after CPET revealed differences that peak exercise values alone may miss.",
-      es: "En este estudio clínico, la recuperación después de la CPET mostró diferencias que los valores máximos pueden pasar por alto.",
+      es: "En este estudio clínico, la recuperación después de la CPET mostró diferencias que no se observan al considerar solo los valores máximos.",
     },
     imageAlt: {
       en: "Recovery curves for oxygen uptake, heart rate, ventilation, carbon dioxide production, and oxygen pulse after maximal exercise.",
@@ -114,31 +114,25 @@ const selectedPapers: SelectedPaper[] = [
     },
   },
   {
-    id: "athlete-ecg-repolarization",
+    id: "athlete-ecg-lvh",
     year: "2026",
     title:
-      "Race- and Sex-Associated Electrocardiographic Repolarization Characteristics in Young American Athletes in the Digital Age",
-    journal: "JACC: Advances · Tso et al.",
-    href: "https://pubmed.ncbi.nlm.nih.gov/41351976/",
-    image: "/selected-papers/athlete-ecg-central-illustration.jpg",
-    imageWidth: 765,
-    imageHeight: 545,
-    figureHref: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12723155/#fig6",
-    figureLabel: { en: "Central illustration", es: "Ilustración central" },
-    figureCredit: "Tso et al., JACC: Advances (2026)",
-    license: "CC BY 4.0",
-    licenseHref: "https://creativecommons.org/licenses/by/4.0/",
+      "Sex-Specific Electrocardiographic Criteria for Left Ventricular Hypertrophy in Young Athletes",
+    journal: "Heart Rhythm · Montalvo et al.",
+    href: "https://pubmed.ncbi.nlm.nih.gov/40358569/",
+    figureCredit: "Montalvo et al., Heart Rhythm (2026)",
+    originalVisual: "ecg",
     focus: {
-      en: "ECG · Athlete interpretation",
-      es: "ECG · Evaluación de deportistas",
+      en: "ECG · Sex-specific LVH screening",
+      es: "ECG · Detección de HVI específica por sexo",
     },
     summary: {
-      en: "At Stanford, I use large digital ECG datasets to examine athlete findings with close attention to sex and race.",
-      es: "En Stanford, uso grandes conjuntos de ECG digitales para estudiar hallazgos en deportistas con especial atención al sexo y la raza.",
+      en: "In 9,254 young athletes, sex was the strongest practical modifier of QRS voltage; the study proposes separate screening thresholds for women and men.",
+      es: "En 9,254 deportistas jóvenes, el sexo fue el modificador práctico más importante del voltaje QRS; el estudio propone umbrales distintos para mujeres y hombres.",
     },
     imageAlt: {
-      en: "Study summary showing that convex anterior T-wave inversion was rare and similarly prevalent across racial groups in 8,758 athletes.",
-      es: "Resumen del estudio que muestra que la inversión anterior convexa de la onda T fue poco frecuente y similar entre grupos raciales en 8,758 deportistas.",
+      en: "Visual summary of proposed sex-specific Sokolow-Lyon and limb-lead QRS voltage thresholds for left ventricular hypertrophy screening in young athletes.",
+      es: "Resumen visual de los umbrales QRS de Sokolow-Lyon y derivaciones de miembros, específicos por sexo, propuestos para detectar hipertrofia ventricular izquierda en deportistas jóvenes.",
     },
   },
   {
@@ -150,14 +144,14 @@ const selectedPapers: SelectedPaper[] = [
     href: "https://pubmed.ncbi.nlm.nih.gov/42395096/",
     figureCredit:
       "Schmiedmayer et al., American Journal of Preventive Cardiology (2026)",
-    originalVisual: true,
+    originalVisual: "digital",
     focus: {
       en: "Digital health · Language-model coaching",
       es: "Salud digital · Orientación con modelos de lenguaje",
     },
     summary: {
-      en: "My Heart Counts links my physiology background with a digital biobank and language-model coaching for physical activity.",
-      es: "My Heart Counts conecta mi formación en fisiología con un biobanco digital y orientación mediante modelos de lenguaje para la actividad física.",
+      en: "The protocol tests language-model coaching for physical activity inside a fully digital cardiovascular biobank and randomized trial.",
+      es: "El protocolo evalúa la orientación con modelos de lenguaje para la actividad física dentro de un biobanco cardiovascular y ensayo aleatorizado completamente digitales.",
     },
     imageAlt: {
       en: "Diagram of the My Heart Counts app linking autonomous trials, language-model coaching, health dashboards, a digital biobank, and bilingual access.",
@@ -184,8 +178,8 @@ const selectedPapers: SelectedPaper[] = [
       es: "Fisiología vascular · Estrés de cizallamiento carotídeo",
     },
     summary: {
-      en: "As first author, I studied how exercise mode and intensity change vascular responses, an approach I later carried into broader physiology studies.",
-      es: "Como primer autor, estudié cómo la modalidad y la intensidad del ejercicio cambian la respuesta vascular, un enfoque que después llevé a estudios integrales de fisiología.",
+      en: "Exercise mode and intensity produced distinct carotid blood-flow and endothelial shear-stress patterns in this first-author study.",
+      es: "En este estudio como primer autor, la modalidad y la intensidad del ejercicio produjeron patrones distintos de flujo carotídeo y estrés de cizallamiento endotelial.",
     },
     imageAlt: {
       en: "Boxplots comparing carotid endothelial shear stress at rest and at three intensities across six exercise modalities.",
@@ -197,26 +191,28 @@ const selectedPapers: SelectedPaper[] = [
 const selectedCopy = {
   en: {
     eyebrow: "Selected papers",
-    title: "Six papers that reflect the direction of my work.",
+    title: "Papers that show the direction of my work.",
     intro:
-      "I chose these papers because together they show the connections among my vascular and performance work, clinical testing, athlete ECG, digital health, and MoTrPAC multi-omics.",
+      "I chose these studies because each marks a change in the questions I asked, the populations I worked with, or the scale of the data.",
     figureAction: "Open the full figure",
     reproduced: "reproduced from",
     original: "Original visual summary based on",
     licenseConnector: "under",
     paperAction: "View paper",
+    newTab: "opens in a new tab",
     archiveAction: "Browse the complete publication record",
   },
   es: {
     eyebrow: "Trabajos seleccionados",
-    title: "Seis trabajos que reflejan el rumbo de mi investigación.",
+    title: "Trabajos que muestran el rumbo de mi investigación.",
     intro:
-      "Estos artículos reúnen las líneas principales de mi investigación: fisiología vascular y del rendimiento, evaluación clínica, ECG en deportistas, salud digital y multiómica de MoTrPAC.",
+      "Elegí estos estudios porque cada uno marca un cambio en las preguntas, las poblaciones o la escala de los datos de mi investigación.",
     figureAction: "Abrir la figura completa",
     reproduced: "reproducida de",
     original: "Resumen visual original basado en",
     licenseConnector: "bajo",
     paperAction: "Ver artículo",
+    newTab: "se abre en una pestaña nueva",
     archiveAction: "Consultar el registro completo de publicaciones",
   },
 } as const;
@@ -238,7 +234,7 @@ export function SelectedPapers({ locale }: { locale: Locale }) {
         {selectedPapers.map((paper) => (
           <article className="selected-paper-card" key={paper.id}>
             <figure className="selected-paper-figure">
-              {paper.originalVisual ? (
+              {paper.originalVisual === "digital" ? (
                 <div
                   className="selected-paper-original-visual"
                   role="img"
@@ -259,12 +255,43 @@ export function SelectedPapers({ locale }: { locale: Locale }) {
                     <span>{locale === "es" ? "Inglés + español" : "English + Spanish"}</span>
                   </div>
                 </div>
+              ) : paper.originalVisual === "ecg" ? (
+                <div
+                  className="selected-paper-ecg-visual"
+                  role="img"
+                  aria-label={paper.imageAlt[locale]}
+                >
+                  <div className="ecg-visual-intro">
+                    <small>{locale === "es" ? "9,254 deportistas" : "9,254 athletes"}</small>
+                    <strong>
+                      {locale === "es" ? "Umbrales QRS por sexo" : "Sex-specific QRS thresholds"}
+                    </strong>
+                  </div>
+                  <div className="ecg-threshold-group ecg-threshold-sl">
+                    <span>Sokolow–Lyon</span>
+                    <div>
+                      <b>{locale === "es" ? "Hombres" : "Men"}</b><i /><em>&gt;6.8 mV</em>
+                    </div>
+                    <div>
+                      <b>{locale === "es" ? "Mujeres" : "Women"}</b><i /><em>&gt;4.7 mV</em>
+                    </div>
+                  </div>
+                  <div className="ecg-threshold-group ecg-threshold-limb">
+                    <span>{locale === "es" ? "Derivaciones de miembros" : "Limb-lead score"}</span>
+                    <div>
+                      <b>{locale === "es" ? "Hombres" : "Men"}</b><i /><em>&gt;2.3 mV</em>
+                    </div>
+                    <div>
+                      <b>{locale === "es" ? "Mujeres" : "Women"}</b><i /><em>&gt;1.9 mV</em>
+                    </div>
+                  </div>
+                </div>
               ) : (
                 <a
                   href={paper.figureHref}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={`${copy.figureAction}: ${paper.figureLabel?.[locale]}`}
+                  aria-label={`${copy.figureAction}: ${paper.figureLabel?.[locale]} — ${paper.title}`}
                 >
                   {/* These credited research figures are local, lazy-loaded assets with fixed dimensions. */}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -318,6 +345,7 @@ export function SelectedPapers({ locale }: { locale: Locale }) {
                 aria-label={`${copy.paperAction}: ${paper.title}`}
               >
                 {copy.paperAction} {externalIcon}
+                <span className="sr-only">({copy.newTab})</span>
               </a>
             </div>
           </article>

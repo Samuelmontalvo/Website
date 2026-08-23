@@ -1,16 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.samuelmontalvo.com"),
@@ -19,12 +9,13 @@ export const metadata: Metadata = {
     template: "%s | Samuel Montalvo, PhD",
   },
   description:
-    "Research across MoTrPAC, sports performance, CPET, ECG, clinical exercise physiology, and AI-enabled tools.",
+    "Research in personalized exercise medicine through MoTrPAC, cardiopulmonary exercise testing, athlete ECG, and digital health.",
   alternates: {
     canonical: "/",
     languages: {
       en: "/",
       es: "/es",
+      "x-default": "/",
     },
   },
   keywords: [
@@ -34,9 +25,14 @@ export const metadata: Metadata = {
     "biomechanics",
     "MoTrPAC",
     "CPET",
+    "cardiopulmonary exercise testing",
     "ECG",
+    "electrocardiography",
+    "sports cardiology",
+    "clinical exercise physiology",
     "sports performance",
-    "AI research tools",
+    "AI agents",
+    "research apps",
     "Stanford",
     "Samuel Montalvo",
   ],
@@ -45,9 +41,11 @@ export const metadata: Metadata = {
     type: "website",
     title: "Samuel Montalvo, PhD | Personalized Exercise Medicine",
     description:
-      "Research across MoTrPAC, sports performance, CPET, ECG, clinical exercise physiology, and AI-enabled tools.",
+      "Research in personalized exercise medicine through MoTrPAC, cardiopulmonary exercise testing, athlete ECG, and digital health.",
     url: "https://www.samuelmontalvo.com",
     siteName: "Samuel Montalvo, PhD",
+    locale: "en_US",
+    alternateLocale: ["es_US"],
     images: [
       {
         url: "/og.png",
@@ -61,7 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Samuel Montalvo, PhD | Personalized Exercise Medicine",
     description:
-      "Research across MoTrPAC, sports performance, CPET, ECG, clinical exercise physiology, and AI-enabled tools.",
+      "Research in personalized exercise medicine through MoTrPAC, cardiopulmonary exercise testing, athlete ECG, and digital health.",
     images: ["/og.png"],
   },
   icons: {
@@ -70,18 +68,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const requestHeaders = await headers();
+  const locale = requestHeaders.get("x-site-locale") === "es" ? "es" : "en";
+
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html lang={locale}>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

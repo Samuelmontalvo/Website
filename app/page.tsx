@@ -2,6 +2,9 @@ import { ProjectAreas } from "./project-areas";
 import { publicationGroups, totalPublicationCount } from "./publications-data";
 import { SelectedPapers } from "./selected-papers";
 
+const peerReviewedCount =
+  publicationGroups.find((group) => group.id === "peer-reviewed")?.items.length ?? 0;
+
 const externalIcon = (
   <svg viewBox="0 0 16 16" aria-hidden="true">
     <path d="M5 11 11 5M6 5h5v5" />
@@ -20,7 +23,6 @@ const pageCopy = {
   en: {
     skip: "Skip to content",
     mainNav: "Main navigation",
-    homeLabel: "Samuel Montalvo home",
     nav: {
       research: "Projects",
       tools: "Agents & apps",
@@ -29,13 +31,13 @@ const pageCopy = {
       about: "About",
       contact: "Contact me",
     },
-    language: { label: "ES", aria: "View site in Spanish", href: "/es" },
+    language: { label: "ES", aria: "ES · View site in Spanish", href: "/es" },
     hero: {
       kicker: "Stanford Medicine · Cardiovascular Medicine",
       title: "I study why people respond",
       titleAccent: "differently to exercise.",
       intro:
-        "My work spans MoTrPAC multi-omics, high-performance sport, CPET, ECG, clinical exercise research, and AI agents and apps. Across these projects, I use physiology, biomechanics, molecular data, and software to study how people respond to exercise.",
+        "At Stanford, I connect physiological measurements from patients and athletes with molecular data from MoTrPAC.",
       primary: "View my projects",
       secondary: "View agents & apps",
       domainsLabel: "Project areas",
@@ -51,45 +53,53 @@ const pageCopy = {
       profile: "Stanford profile",
     },
     research: {
-      eyebrow: "Current projects",
-      title: "My projects span molecular, clinical, and performance research.",
+      eyebrow: "Research",
+      title: "What I am working on now.",
       intro:
-        "At Stanford and with external collaborators, I work across six connected areas. Each uses exercise to study health, adaptation, or performance.",
-      profileNote:
-        "Appointments, awards, and additional research details are available on my Stanford profile.",
+        "The work below reflects my current Stanford collaborations and outside sports-science partnerships.",
+      credentialsEyebrow: "Career highlights",
+      credentialsTitle: "Awards, invited talks, and service.",
+      credentials: [
+        {
+          meta: "NIH · NHLBI",
+          title: "LRP-REACH award and TIMBS fellowship",
+          body: "My current research is supported by a two-year LRP-REACH award. I also completed NIH T32 training in myocardial biology at Stanford from 2024 to 2026.",
+          href: "https://profiles.stanford.edu/samuel-montalvo-hernandez",
+          action: "Stanford profile",
+        },
+        {
+          meta: "CFDE · 2026",
+          title: "Selected data-training proposal",
+          body: "Cataloging MoTrPAC and Metabolomics Workbench Data was selected for $5,000 in support from the NIH Common Fund Data Ecosystem.",
+        },
+        {
+          meta: "Invited talks · 2025",
+          title: "Henan University and UANL",
+          body: "I spoke on The Molecular Elite Athlete at Henan University and From Molecules to High Performance in Exercise Science at UANL.",
+        },
+        {
+          meta: "Service & mentoring",
+          title: "Section editor and thesis co-director",
+          body: "I serve as an exercise physiology and biomechanics section editor for the Journal of Taiji Science. In 2025, I co-directed Pablo Tadeo Ríos Gallardo's UANL thesis on vertical-jump technology.",
+          href: "https://www.wtsf.org/ojs/index.php/jts/en/Editorial_Board",
+          action: "Editorial board",
+          secondaryHref: "https://eprints.uanl.mx/31086/1/1080263196.pdf",
+          secondaryAction: "UANL thesis",
+        },
+      ],
       profileAction: "View Stanford profile",
     },
     tools: {
       eyebrow: "AI agents and research apps",
       title: "Software for research, teaching, and analysis.",
       intro:
-        "I build agents and apps for specific needs in my research and teaching: reviewing evidence, analyzing movement and physiology, organizing data, and preparing for certification exams.",
-    },
-    question: {
-      eyebrow: "The question behind my work",
-      quote:
-        "How can we move beyond an average exercise recommendation and choose an intervention that fits the person?",
-      stepsLabel: "Research translation steps",
-      steps: [
-        {
-          title: "Measure",
-          body: "Collect clinical tests, movement data, wearable data, diet records, and molecular profiles.",
-        },
-        {
-          title: "Connect",
-          body: "Study how these measurements change across tissues, time points, and types of exercise.",
-        },
-        {
-          title: "Translate",
-          body: "Use those differences to develop personalized strategies that can be tested.",
-        },
-      ],
+        "I build software for problems that come up in my research and teaching. Some projects are public; others are still in development.",
     },
     publications: {
       eyebrow: "Publication record · Updated August 2026",
-      title: `${totalPublicationCount} papers, preprints, and abstracts.`,
+      title: `${peerReviewedCount} peer-reviewed papers.`,
       intro:
-        "I compiled this list from my CV and checked each item against PubMed, my Stanford profile, and publisher records. PubMed-indexed items link to PubMed; the others link to a journal page, DOI, repository, or Google Scholar.",
+        `The complete record includes ${totalPublicationCount} papers, preprints, and published abstracts. I checked each item against PubMed, my Stanford profile, and publisher records.`,
       totalsLabel: "Publication totals",
       groups: {
         "peer-reviewed": "Peer-reviewed publications",
@@ -102,6 +112,7 @@ const pageCopy = {
         Repository: "Repository",
         "Google Scholar": "Google Scholar",
       },
+      newTab: "opens in a new tab",
     },
     education: {
       eyebrow: "Education and training",
@@ -113,11 +124,11 @@ const pageCopy = {
       eyebrow: "About",
       title: "I study exercise in clinical, laboratory, and performance settings.",
       lead:
-        "I am a Postdoctoral Scholar in Cardiovascular Medicine at Stanford University. I also work with the Stanford Bioinformatics Core and the Wu Tsai Human Performance Alliance.",
+        "I trained at the University of Texas at El Paso from my bachelor's degree through a doctorate in interdisciplinary health science.",
       body:
-        "In MoTrPAC, an NIH-funded consortium, I analyze clinical and molecular data from multiple tissues, exercise modes, and species. My other work includes high-performance sport, CPET, sports cardiology and ECG, neuromuscular disease, vascular physiology related to stroke risk, and AI-enabled research tools.",
+        "I came to Stanford in 2022 through the Wu Tsai Human Performance Alliance and joined Cardiovascular Medicine in 2024. My current work also connects with the Stanford Bioinformatics Core.",
       heritage:
-        "Inclusive mentorship is part of my work as a first-generation Mexican American scientist with Indigenous heritage. I also build practical tools to make rigorous exercise science easier to learn and use.",
+        "As a Mexican American scientist with Indigenous heritage, I care deeply about mentorship. I build teaching tools because exercise science should be easier to learn and use.",
       imageAlt:
         "Samuel Montalvo, clinical exercise physiologist and sport scientist",
       cv: "View my CV",
@@ -127,8 +138,7 @@ const pageCopy = {
       eyebrow: "Contact",
       title: "Interested in working together?",
       body:
-        "I am open to collaborations in MoTrPAC and multi-omics, high-performance sport, CPET, ECG, clinical exercise physiology, and research software.",
-      consulting: "Ask about consulting",
+        "If your project overlaps with my work, email me with a short description of the question and the collaboration you have in mind.",
     },
     footer: {
       profilesLabel: "Professional profiles",
@@ -139,7 +149,6 @@ const pageCopy = {
   es: {
     skip: "Ir al contenido",
     mainNav: "Navegación principal",
-    homeLabel: "Inicio de Samuel Montalvo",
     nav: {
       research: "Proyectos",
       tools: "Agentes y apps",
@@ -148,13 +157,13 @@ const pageCopy = {
       about: "Sobre mí",
       contact: "Contacto",
     },
-    language: { label: "EN", aria: "Ver sitio en inglés", href: "/" },
+    language: { label: "EN", aria: "EN · Ver sitio en inglés", href: "/" },
     hero: {
       kicker: "Stanford Medicine · Medicina Cardiovascular",
       title: "Estudio por qué cada persona responde",
       titleAccent: "de manera distinta al ejercicio.",
       intro:
-        "Mi trabajo abarca la multiómica de MoTrPAC, el alto rendimiento deportivo, CPET, ECG, la investigación clínica del ejercicio y agentes y aplicaciones de IA. En estos proyectos uso fisiología, biomecánica, datos moleculares y software para estudiar cómo responden las personas al ejercicio.",
+        "En Stanford, conecto mediciones fisiológicas de pacientes y deportistas con datos moleculares de MoTrPAC.",
       primary: "Ver mis proyectos",
       secondary: "Ver agentes y apps",
       domainsLabel: "Áreas de proyectos",
@@ -170,45 +179,53 @@ const pageCopy = {
       profile: "Perfil de Stanford",
     },
     research: {
-      eyebrow: "Proyectos actuales",
-      title: "Mis proyectos abarcan investigación molecular, clínica y de rendimiento.",
+      eyebrow: "Investigación",
+      title: "En qué estoy trabajando ahora.",
       intro:
-        "En Stanford y con colaboradores externos, trabajo en seis áreas conectadas. En todas utilizo el ejercicio para estudiar la salud, la adaptación o el rendimiento.",
-      profileNote:
-        "Mi perfil de Stanford incluye mis nombramientos, premios y otros detalles de investigación.",
+        "El trabajo que presento aquí refleja mis colaboraciones actuales en Stanford y con equipos externos de ciencias del deporte.",
+      credentialsEyebrow: "Trayectoria destacada",
+      credentialsTitle: "Premios, conferencias invitadas y servicio.",
+      credentials: [
+        {
+          meta: "NIH · NHLBI",
+          title: "LRP-REACH y beca TIMBS",
+          body: "Mi investigación actual cuenta con el apoyo de un premio LRP-REACH de dos años. También completé la formación T32 de los NIH en biología del miocardio en Stanford entre 2024 y 2026.",
+          href: "https://profiles.stanford.edu/samuel-montalvo-hernandez",
+          action: "Perfil de Stanford",
+        },
+        {
+          meta: "CFDE · 2026",
+          title: "Propuesta de formación seleccionada",
+          body: "Cataloging MoTrPAC and Metabolomics Workbench Data recibió $5,000 del NIH Common Fund Data Ecosystem.",
+        },
+        {
+          meta: "Conferencias invitadas · 2025",
+          title: "Henan University y UANL",
+          body: "Presenté The Molecular Elite Athlete en Henan University y From Molecules to High Performance in Exercise Science en la UANL.",
+        },
+        {
+          meta: "Servicio y mentoría",
+          title: "Editor de sección y codirector de tesis",
+          body: "Soy editor de la sección de fisiología del ejercicio y biomecánica del Journal of Taiji Science. En 2025 codirigí la tesis de Pablo Tadeo Ríos Gallardo en la UANL sobre tecnología para medir el salto vertical.",
+          href: "https://www.wtsf.org/ojs/index.php/jts/en/Editorial_Board",
+          action: "Comité editorial",
+          secondaryHref: "https://eprints.uanl.mx/31086/1/1080263196.pdf",
+          secondaryAction: "Tesis de la UANL",
+        },
+      ],
       profileAction: "Ver perfil de Stanford",
     },
     tools: {
       eyebrow: "Agentes de IA y aplicaciones de investigación",
       title: "Software para investigación, docencia y análisis.",
       intro:
-        "Desarrollo agentes y aplicaciones para necesidades concretas de mi investigación y docencia: revisar evidencia, analizar el movimiento y la fisiología, organizar datos y prepararse para exámenes de certificación.",
-    },
-    question: {
-      eyebrow: "La pregunta detrás de mi trabajo",
-      quote:
-        "¿Cómo podemos ir más allá de una recomendación de ejercicio basada en promedios y elegir una intervención adecuada para cada persona?",
-      stepsLabel: "Etapas de la investigación aplicada",
-      steps: [
-        {
-          title: "Medir",
-          body: "Recopilar pruebas clínicas, datos de movimiento, datos de dispositivos portátiles, registros de alimentación y perfiles moleculares.",
-        },
-        {
-          title: "Relacionar",
-          body: "Estudiar cómo cambian estas mediciones entre tejidos, momentos y tipos de ejercicio.",
-        },
-        {
-          title: "Aplicar",
-          body: "Usar esas diferencias para desarrollar estrategias personalizadas que se puedan evaluar.",
-        },
-      ],
+        "Desarrollo software para resolver problemas concretos de mi investigación y mi docencia. Algunos proyectos ya son públicos; otros siguen en desarrollo.",
     },
     publications: {
       eyebrow: "Registro de publicaciones · Actualizado en agosto de 2026",
-      title: `${totalPublicationCount} artículos, preprints y resúmenes.`,
+      title: `${peerReviewedCount} artículos revisados por pares.`,
       intro:
-        "Preparé esta lista a partir de mi CV y verifiqué cada registro en PubMed, mi perfil de Stanford y las fuentes editoriales. Los trabajos indexados enlazan a PubMed; los demás llevan a la revista, el DOI, un repositorio o Google Scholar.",
+        `El registro completo incluye ${totalPublicationCount} artículos, preprints y resúmenes publicados. Verifiqué cada registro en PubMed, mi perfil de Stanford y las fuentes editoriales.`,
       totalsLabel: "Totales de publicaciones",
       groups: {
         "peer-reviewed": "Publicaciones revisadas por pares",
@@ -221,6 +238,7 @@ const pageCopy = {
         Repository: "Repositorio",
         "Google Scholar": "Google Scholar",
       },
+      newTab: "se abre en una pestaña nueva",
     },
     education: {
       eyebrow: "Formación académica y posdoctoral",
@@ -232,11 +250,11 @@ const pageCopy = {
       eyebrow: "Sobre mí",
       title: "Estudio el ejercicio en entornos clínicos, de laboratorio y de rendimiento.",
       lead:
-        "Soy investigador posdoctoral en Medicina Cardiovascular de Stanford University. También colaboro con el Stanford Bioinformatics Core y la Wu Tsai Human Performance Alliance.",
+        "Me formé en la University of Texas at El Paso desde la licenciatura hasta el doctorado en ciencias interdisciplinarias de la salud.",
       body:
-        "En MoTrPAC, un consorcio financiado por los NIH, analizo datos clínicos y moleculares de varios tejidos, modalidades de ejercicio y especies. Mi trabajo también incluye alto rendimiento deportivo, CPET, cardiología deportiva y ECG, enfermedades neuromusculares, fisiología vascular relacionada con el riesgo de accidente cerebrovascular y herramientas de investigación con IA.",
+        "Llegué a Stanford en 2022 a través de la Wu Tsai Human Performance Alliance y me incorporé a Medicina Cardiovascular en 2024. Mi trabajo actual también se vincula con el Stanford Bioinformatics Core.",
       heritage:
-        "La mentoría inclusiva forma parte de mi trabajo como científico mexicoamericano de primera generación con raíces indígenas. También desarrollo herramientas prácticas para que la ciencia rigurosa del ejercicio sea más fácil de aprender y utilizar.",
+        "Como científico mexicoamericano con raíces indígenas, la mentoría es muy importante para mí. Desarrollo herramientas docentes porque la ciencia del ejercicio debe ser más fácil de aprender y utilizar.",
       imageAlt:
         "Samuel Montalvo, fisiólogo clínico del ejercicio y científico del deporte",
       cv: "Ver mi CV",
@@ -246,8 +264,7 @@ const pageCopy = {
       eyebrow: "Contacto",
       title: "¿Le interesa trabajar conmigo?",
       body:
-        "Estoy abierto a colaboraciones en MoTrPAC y multiómica, alto rendimiento deportivo, CPET, ECG, fisiología clínica del ejercicio y software de investigación.",
-      consulting: "Consultoría",
+        "Si su proyecto coincide con alguna de mis líneas de trabajo, escríbame con una breve descripción de la pregunta y del tipo de colaboración que tiene en mente.",
     },
     footer: {
       profilesLabel: "Perfiles profesionales",
@@ -260,11 +277,11 @@ const pageCopy = {
 const tools = [
   {
     number: "01",
-    status: "Evidence atlas · release 0.6",
+    status: "Evidence atlas",
     title: "Vertical Jump Atlas",
     subtitle: "Published vertical-jump data, organized by protocol",
     body: "Compare published cohorts by jump protocol and review reference values from compatible studies. The pooled estimates are exploratory and are not intended for diagnosis or talent selection.",
-    tags: ["51 PubMed records", "74 reference estimates", "Grouped by protocol"],
+    tags: ["PubMed-indexed studies", "Protocol-specific references", "Exploratory use"],
     href: "https://takeoff-jump-atlas.samuelmontalvo.chatgpt.site/#sport-norms",
     action: "Open the atlas",
     theme: "atlas",
@@ -276,21 +293,21 @@ const tools = [
             ? "Valores de referencia por protocolo de salto"
             : "Reference values by jump protocol"}
         </span>
-        <span className="atlas-scale scale-zero">0</span>
-        <span className="atlas-scale scale-thirty">30</span>
-        <span className="atlas-scale scale-sixty">60 cm</span>
-        <span className="atlas-bar atlas-bar-a"><i>CMJ</i><b>44.3</b></span>
+        <span className="atlas-scale scale-zero">LOW</span>
+        <span className="atlas-scale scale-thirty">MID</span>
+        <span className="atlas-scale scale-sixty">HIGH</span>
+        <span className="atlas-bar atlas-bar-a"><i>CMJ</i></span>
         <span className="atlas-bar atlas-bar-b">
-          <i>{locale === "es" ? "CMJ + brazos" : "CMJ + arms"}</i><b>48.1</b>
+          <i>{locale === "es" ? "CMJ + brazos" : "CMJ + arms"}</i>
         </span>
-        <span className="atlas-bar atlas-bar-c"><i>SJ</i><b>35.7</b></span>
+        <span className="atlas-bar atlas-bar-c"><i>SJ</i></span>
         <span className="atlas-marker">
-          <i>{locale === "es" ? "Tu salto" : "Your jump"}</i><b>30 cm</b>
+          <i>{locale === "es" ? "Vista ilustrativa" : "Illustrative preview"}</i>
         </span>
         <span className="atlas-source">
           {locale === "es"
-            ? "Cohortes en PubMed · filtros por protocolo · medias compatibles"
-            : "PubMed-indexed cohorts · protocol filters · compatible means"}
+            ? "Abra el atlas para consultar los datos actuales"
+            : "Open the atlas for current data"}
         </span>
       </div>
     ),
@@ -330,7 +347,7 @@ const tools = [
     status: "Public beta",
     title: "FlightLab EDU",
     subtitle: "Video-based jump analysis for teaching",
-    body: "Students can review countermovement- and squat-jump videos without uploading them. The app suggests takeoff and landing events on the device, lets users correct those events, calculates height from flight time, flags quality issues, and exports results locally.",
+    body: "The app marks takeoff and landing, and students can correct those events before it calculates jump height. Videos stay on the device, and results export locally.",
     tags: ["Performance + education", "On-device AI", "No video uploads"],
     href: "https://flightlab-edu.netlify.app/",
     action: "Launch FlightLab EDU",
@@ -358,46 +375,24 @@ const tools = [
   },
   {
     number: "04",
-    status: "Private research software",
-    title: "Stanford CPET App",
-    subtitle: "Quality control and analysis for CPET data",
-    body: "I use this private software to parse cardiopulmonary exercise test files, check data quality, visualize the results, and prepare research exports.",
-    tags: ["CPET", "Physiology", "Reproducible workflows"],
-    href: "mailto:smontal@stanford.edu?subject=CPET research software collaboration",
-    action: "Ask about the software",
-    theme: "teal",
-    visual: (locale: Locale) => (
-      <div
-        className="tool-visual cpet-visual"
-        aria-hidden="true"
-        data-locale={locale}
-      >
-        <span className="plot-grid" />
-        <span className="plot-line line-a" />
-        <span className="plot-line line-b" />
-        <span className="plot-label plot-vo2">VO₂</span>
-        <span className="plot-label plot-vco2">VCO₂</span>
-      </div>
-    ),
-  },
-  {
-    number: "05",
     status: "Live learning tool",
     title: "Exercise Science Practice Lab",
     subtitle: "Practice questions for exercise science certifications",
     body: "I built this independent multilingual study tool for ACSM-CEP, NSCA-CPSS, and NSCA-CSCS preparation. It uses original question banks and tracks weak areas for targeted review.",
-    tags: ["Education", "3,000 questions", "English · Español · 中文"],
+    tags: ["Education", "Original question banks", "English · Español · 中文"],
     href: "https://exercise-science-exam-prep.netlify.app/",
     action: "Open Practice Lab",
     theme: "plum",
     visual: (locale: Locale) => (
       <div className="tool-visual study-visual" aria-hidden="true">
-        <span className="study-score">82<span>%</span></span>
+        <span className="study-score">
+          {locale === "es" ? "Repaso" : "Review"}
+        </span>
         <span className="study-bar bar-a" />
         <span className="study-bar bar-b" />
         <span className="study-bar bar-c" />
         <span className="study-label">
-          {locale === "es" ? "dominio por área" : "domain mastery"}
+          {locale === "es" ? "práctica por área" : "practice by domain"}
         </span>
       </div>
     ),
@@ -415,38 +410,31 @@ const spanishToolCopy: Record<
   }
 > = {
   "Vertical Jump Atlas": {
-    status: "Atlas de evidencia · versión 0.6",
+    status: "Atlas de evidencia",
     subtitle: "Datos publicados de salto vertical, organizados por protocolo",
     body: "Compare cohortes publicadas por protocolo de salto y consulte valores de referencia de estudios compatibles. Las estimaciones combinadas son exploratorias y no están diseñadas para diagnóstico ni selección de talento.",
-    tags: ["51 registros en PubMed", "74 valores de referencia", "Agrupados por protocolo"],
+    tags: ["Estudios indexados en PubMed", "Referencias por protocolo", "Uso exploratorio"],
     action: "Abrir el atlas",
   },
   "Metabo-Diet": {
     status: "En desarrollo",
     subtitle: "Formación en armonización con datos sintéticos",
-    body: "Estoy desarrollando este módulo para enseñar a comparar datos de alimentación, ejercicio, salud clínica y metabolómica sin perder el contexto ni la procedencia de cada estudio.",
+    body: "Estoy desarrollando este módulo para enseñar a comparar datos dietéticos, de ejercicio, clínicos y metabolómicos sin perder el contexto ni la procedencia de cada estudio.",
     tags: ["Datos sintéticos", "Multiómica", "Armonización de datos"],
     action: "Consultar sobre el proyecto",
   },
   "FlightLab EDU": {
     status: "Beta pública",
     subtitle: "Análisis de saltos en video para la enseñanza",
-    body: "Los estudiantes pueden revisar videos de salto con contramovimiento y salto desde sentadilla sin subirlos a un servidor. La aplicación sugiere los eventos de despegue y aterrizaje en el dispositivo, permite corregirlos, calcula la altura a partir del tiempo de vuelo, señala problemas de calidad y exporta los resultados localmente.",
+    body: "La aplicación marca el despegue y el aterrizaje, y los estudiantes pueden corregir esos eventos antes de calcular la altura del salto. Los videos permanecen en el dispositivo y los resultados se exportan localmente.",
     tags: ["Rendimiento + educación", "IA en el dispositivo", "Los videos no se suben"],
     action: "Abrir FlightLab EDU",
-  },
-  "Stanford CPET App": {
-    status: "Software privado de investigación",
-    subtitle: "Control de calidad y análisis de datos de CPET",
-    body: "Uso este software privado para importar archivos de pruebas de ejercicio cardiopulmonar, revisar la calidad de los datos, visualizar los resultados y preparar exportaciones para investigación.",
-    tags: ["CPET", "Fisiología", "Flujos reproducibles"],
-    action: "Consultar sobre el software",
   },
   "Exercise Science Practice Lab": {
     status: "Herramienta educativa disponible",
     subtitle: "Preguntas de práctica para certificaciones en ciencias del ejercicio",
     body: "Desarrollé esta herramienta multilingüe e independiente para preparar las certificaciones ACSM-CEP, NSCA-CPSS y NSCA-CSCS. Incluye bancos de preguntas originales y registra las áreas que requieren más repaso.",
-    tags: ["Educación", "3,000 preguntas", "English · Español · 中文"],
+    tags: ["Educación", "Bancos de preguntas originales", "English · Español · 中文"],
     action: "Abrir Practice Lab",
   },
 };
@@ -537,6 +525,130 @@ const footerLinks = [
   },
 ];
 
+const recentUpdatesByLocale = {
+  en: {
+    eyebrow: "Recent updates",
+    title: "2026",
+    items: [
+      {
+        date: "Aug 21",
+        dateTime: "2026-08-21",
+        text: "Our critical review of sleep and muscle hypertrophy was published online in Strength & Conditioning Journal.",
+        href: "https://doi.org/10.1519/SSC.0000000000001000",
+        action: "Read the paper",
+      },
+      {
+        date: "Aug 11",
+        dateTime: "2026-08-11",
+        text: "A basketball study linking isometric shoulder strength with three-point accuracy was published online in JSCR.",
+        href: "https://pubmed.ncbi.nlm.nih.gov/42580351/",
+        action: "PubMed",
+      },
+      {
+        date: "2026",
+        dateTime: "2026",
+        text: "I received a two-year NHLBI LRP-REACH award for research in precision exercise medicine.",
+        href: "https://profiles.stanford.edu/samuel-montalvo-hernandez",
+        action: "Stanford profile",
+      },
+    ],
+  },
+  es: {
+    eyebrow: "Novedades",
+    title: "2026",
+    items: [
+      {
+        date: "21 ago.",
+        dateTime: "2026-08-21",
+        text: "Nuestra revisión crítica sobre el sueño y la hipertrofia muscular se publicó en línea en Strength & Conditioning Journal.",
+        href: "https://doi.org/10.1519/SSC.0000000000001000",
+        action: "Leer el artículo",
+      },
+      {
+        date: "11 ago.",
+        dateTime: "2026-08-11",
+        text: "JSCR publicó en línea nuestro estudio sobre fuerza isométrica del hombro y precisión en tiros de tres puntos.",
+        href: "https://pubmed.ncbi.nlm.nih.gov/42580351/",
+        action: "PubMed",
+      },
+      {
+        date: "2026",
+        dateTime: "2026",
+        text: "Recibí un premio NHLBI LRP-REACH de dos años para investigar medicina del ejercicio de precisión.",
+        href: "https://profiles.stanford.edu/samuel-montalvo-hernandez",
+        action: "Perfil de Stanford",
+      },
+    ],
+  },
+} as const;
+
+const codeByLocale = {
+  en: {
+    eyebrow: "Open code",
+    title: "Code and reproducible workflows.",
+    intro: "Public repositories for tools and analyses I use in research.",
+    items: [
+      {
+        title: "MetaboTyping Agentic Workbench",
+        type: "Research agents",
+        body: "An offline, human-reviewed workflow for finding metabolomics datasets and evaluating whether their variables and assays can be harmonized.",
+        href: "https://github.com/Samuelmontalvo/metabotyping-agentic-workbench",
+      },
+      {
+        title: "VT Web Autodetection",
+        type: "CPET",
+        body: "A Streamlit application for automated VT1 and VT2 detection.",
+        href: "https://github.com/Samuelmontalvo/VT_Web_Autodetection",
+      },
+      {
+        title: "Open S&C PASCO",
+        type: "Performance testing",
+        body: "An R Shiny workflow for processing countermovement-jump and isometric mid-thigh-pull data from PASCO platforms.",
+        href: "https://github.com/Samuelmontalvo/Open_S-C_pasco",
+      },
+      {
+        title: "ECG LVH",
+        type: "Sports cardiology",
+        body: "The analysis repository associated with my work on sex-specific ECG criteria for left ventricular hypertrophy in young athletes.",
+        href: "https://github.com/Samuelmontalvo/ECG_lvh",
+      },
+    ],
+    action: "View repository",
+  },
+  es: {
+    eyebrow: "Código abierto",
+    title: "Código y flujos de trabajo reproducibles.",
+    intro: "Repositorios públicos de herramientas y análisis que utilizo en investigación.",
+    items: [
+      {
+        title: "MetaboTyping Agentic Workbench",
+        type: "Agentes de investigación",
+        body: "Flujo de trabajo sin conexión y con revisión humana para localizar datos metabolómicos y evaluar si sus variables y ensayos pueden armonizarse.",
+        href: "https://github.com/Samuelmontalvo/metabotyping-agentic-workbench",
+      },
+      {
+        title: "VT Web Autodetection",
+        type: "CPET",
+        body: "Aplicación Streamlit para detectar VT1 y VT2 de forma automatizada.",
+        href: "https://github.com/Samuelmontalvo/VT_Web_Autodetection",
+      },
+      {
+        title: "Open S&C PASCO",
+        type: "Evaluación del rendimiento",
+        body: "Flujo en R Shiny para procesar datos de salto con contramovimiento y tracción isométrica de medio muslo de plataformas PASCO.",
+        href: "https://github.com/Samuelmontalvo/Open_S-C_pasco",
+      },
+      {
+        title: "ECG LVH",
+        type: "Cardiología deportiva",
+        body: "Repositorio de análisis asociado con mi trabajo sobre criterios electrocardiográficos específicos por sexo para hipertrofia ventricular izquierda en deportistas jóvenes.",
+        href: "https://github.com/Samuelmontalvo/ECG_lvh",
+      },
+    ],
+    action: "Ver repositorio",
+  },
+} as const;
+
 function PublicationCitation({ citation }: { citation: string }) {
   const parts = citation.split(/(Montalvo(?: Hernandez)?, S\.)/g);
 
@@ -556,6 +668,8 @@ function PublicationCitation({ citation }: { citation: string }) {
 export function PortfolioPage({ locale }: { locale: Locale }) {
   const copy = pageCopy[locale];
   const education = educationByLocale[locale];
+  const recentUpdates = recentUpdatesByLocale[locale];
+  const code = codeByLocale[locale];
 
   return (
     <main lang={locale}>
@@ -564,7 +678,7 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
       </a>
 
       <nav className="topbar" aria-label={copy.mainNav}>
-        <a className="wordmark" href="#top" aria-label={copy.homeLabel}>
+        <a className="wordmark" href="#top">
           <span>SM</span>
           <strong>Samuel Montalvo, PhD</strong>
         </a>
@@ -627,10 +741,14 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
         >
           <div className="portrait-frame">
             <img
-              src="/samuel-montalvo.jpg"
+              src="/samuel-montalvo-800.jpg"
+              srcSet="/samuel-montalvo-480.jpg 480w, /samuel-montalvo-800.jpg 800w"
+              sizes="(max-width: 600px) calc(100vw - 50px), (max-width: 850px) calc(100vw - 76px), 380px"
               alt={locale === "es" ? "Retrato de Samuel Montalvo" : "Portrait of Samuel Montalvo"}
               width="620"
               height="620"
+              loading="lazy"
+              decoding="async"
             />
             <span className="portrait-accent" />
           </div>
@@ -659,9 +777,34 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
           <p>{copy.research.intro}</p>
         </div>
         <ProjectAreas locale={locale} />
-        <div className="project-profile-note">
-          <span>{copy.research.profileNote}</span>
+        <div className="credentials-block">
+          <div className="credentials-heading">
+            <span className="eyebrow">{copy.research.credentialsEyebrow}</span>
+            <h3>{copy.research.credentialsTitle}</h3>
+          </div>
+          <div className="credentials-grid">
+            {copy.research.credentials.map((item) => (
+              <article className="credential-card" key={item.title}>
+                <span>{item.meta}</span>
+                <h4>{item.title}</h4>
+                <p>{item.body}</p>
+                {"href" in item && item.href ? (
+                  <div className="credential-links">
+                    <a href={item.href} target="_blank" rel="noreferrer">
+                      {item.action} {externalIcon}
+                    </a>
+                    {"secondaryHref" in item && item.secondaryHref ? (
+                      <a href={item.secondaryHref} target="_blank" rel="noreferrer">
+                        {item.secondaryAction} {externalIcon}
+                      </a>
+                    ) : null}
+                  </div>
+                ) : null}
+              </article>
+            ))}
+          </div>
           <a
+            className="credentials-profile-link"
             href="https://profiles.stanford.edu/samuel-montalvo-hernandez"
             target="_blank"
             rel="noreferrer"
@@ -669,6 +812,23 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
             {copy.research.profileAction} {externalIcon}
           </a>
         </div>
+        <section className="recent-updates" aria-labelledby="recent-updates-title">
+          <header>
+            <span className="eyebrow">{recentUpdates.eyebrow}</span>
+            <h3 id="recent-updates-title">{recentUpdates.title}</h3>
+          </header>
+          <ol>
+            {recentUpdates.items.map((item) => (
+              <li key={item.dateTime}>
+                <time dateTime={item.dateTime}>{item.date}</time>
+                <p>{item.text}</p>
+                <a href={item.href} target="_blank" rel="noreferrer">
+                  {item.action} {externalIcon}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </section>
       </section>
 
       <section className="tools-section" id="tools">
@@ -709,22 +869,27 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
               );
             })}
           </div>
-        </div>
-      </section>
-
-      <section className="translation-section section-shell">
-        <div className="translation-quote">
-          <span className="eyebrow">{copy.question.eyebrow}</span>
-          <blockquote>{copy.question.quote}</blockquote>
-        </div>
-        <div className="translation-steps" aria-label={copy.question.stepsLabel}>
-          {copy.question.steps.map((step, index) => (
-            <div key={step.title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <strong>{step.title}</strong>
-              <p>{step.body}</p>
+          <section className="code-section" aria-labelledby="code-section-title">
+            <header className="code-heading">
+              <div>
+                <span className="eyebrow light">{code.eyebrow}</span>
+                <h3 id="code-section-title">{code.title}</h3>
+              </div>
+              <p>{code.intro}</p>
+            </header>
+            <div className="code-grid">
+              {code.items.map((item) => (
+                <article className="code-card" key={item.title}>
+                  <span>{item.type}</span>
+                  <h4>{item.title}</h4>
+                  <p>{item.body}</p>
+                  <a href={item.href} target="_blank" rel="noreferrer">
+                    {code.action} {externalIcon}
+                  </a>
+                </article>
+              ))}
             </div>
-          ))}
+          </section>
         </div>
       </section>
 
@@ -732,13 +897,14 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
         <div className="section-shell">
           <SelectedPapers locale={locale} />
         </div>
-        <div
+        <section
           className="section-shell publication-layout publication-archive"
           id="complete-publication-record"
+          aria-labelledby="complete-publication-record-title"
         >
           <div className="publication-intro">
             <span className="eyebrow">{copy.publications.eyebrow}</span>
-            <h2>{copy.publications.title}</h2>
+            <h2 id="complete-publication-record-title">{copy.publications.title}</h2>
             <p>{copy.publications.intro}</p>
             <div
               className="publication-counts"
@@ -770,39 +936,43 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
           </div>
           <div className="publication-groups">
             {publicationGroups.map((group) => (
-              <details
-                className="publication-group"
-                open={group.initiallyOpen}
-                key={group.id}
-              >
+              <details className="publication-group" key={group.id}>
                 <summary>
                   <span>{copy.publications.groups[group.id]}</span>
                   <span>{group.items.length}</span>
                 </summary>
                 <div className="publication-list">
-                  {group.items.map((publication) => (
-                    <a
-                      className="publication-row"
-                      href={publication.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      key={publication.id}
-                    >
-                      <span className="publication-year">{publication.year}</span>
-                      <div>
-                        <span>{copy.publications.sources[publication.label]}</span>
-                        <p className="publication-citation">
-                          <PublicationCitation citation={publication.citation} />
-                        </p>
-                      </div>
-                      {arrowIcon}
-                    </a>
-                  ))}
+                  {group.items.map((publication) => {
+                    const citationId = `${publication.id}-citation`;
+
+                    return (
+                      <article className="publication-row" key={publication.id}>
+                        <span className="publication-year">{publication.year}</span>
+                        <div>
+                          <p className="publication-citation" id={citationId}>
+                            <PublicationCitation citation={publication.citation} />
+                          </p>
+                          <a
+                            className="publication-source"
+                            href={publication.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-describedby={citationId}
+                          >
+                            {copy.publications.sources[publication.label]} {externalIcon}
+                            <span className="sr-only">
+                              ({copy.publications.newTab})
+                            </span>
+                          </a>
+                        </div>
+                      </article>
+                    );
+                  })}
                 </div>
               </details>
             ))}
           </div>
-        </div>
+        </section>
       </section>
 
       <section className="education-section section-shell" id="education">
@@ -833,7 +1003,9 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
       <section className="about-section section-shell" id="about">
         <div className="about-image">
           <img
-            src="/samuel-montalvo.jpg"
+            src="/samuel-montalvo-800.jpg"
+            srcSet="/samuel-montalvo-480.jpg 480w, /samuel-montalvo-800.jpg 800w"
+            sizes="(max-width: 600px) calc(100vw - 50px), (max-width: 850px) 560px, 430px"
             alt={copy.about.imageAlt}
             width="620"
             height="620"
@@ -852,7 +1024,11 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
           <p>{copy.about.heritage}</p>
           <div className="about-links">
             <a
-              href="/samuel-montalvo-cv.pdf"
+              href={
+                locale === "es"
+                  ? "/samuel-montalvo-cv-es.pdf"
+                  : "/samuel-montalvo-cv.pdf"
+              }
               target="_blank"
               rel="noreferrer"
             >
@@ -873,9 +1049,6 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
           <div className="contact-actions">
             <a className="button button-light" href="mailto:smontal@stanford.edu">
               smontal@stanford.edu {arrowIcon}
-            </a>
-            <a className="button button-ghost" href="mailto:drsamuelmontalvo@gmail.com">
-              {copy.contact.consulting}
             </a>
           </div>
         </div>
