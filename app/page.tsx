@@ -33,12 +33,12 @@ const pageCopy = {
     },
     language: { label: "ES", aria: "ES · View site in Spanish", href: "/es" },
     hero: {
-      kicker: "Stanford Medicine · Cardiovascular Medicine",
-      title: "I study why people respond",
-      titleAccent: "differently to exercise.",
+      kicker: "Stanford Medicine · Division of Cardiovascular Medicine",
+      title: "Mechanistic, physiological, and molecular determinants",
+      titleAccent: "of why people respond differently to exercise.",
       intro:
-        "At Stanford, I connect physiological measurements from patients and athletes with molecular data from MoTrPAC.",
-      primary: "View my projects",
+        "Postdoctoral Scholar in Cardiovascular Medicine at Stanford University integrating cardiopulmonary exercise testing (CPET), neuromuscular biomechanics, digital health trials, and multi-tissue multi-omics within the NIH Molecular Transducers of Physical Activity Consortium (MoTrPAC).",
+      primary: "View research program",
       secondary: "View agents & apps",
       domainsLabel: "Project areas",
       domains: [
@@ -49,38 +49,38 @@ const pageCopy = {
         "Clinical research",
         "AI agents + apps",
       ],
-      roles: "Clinical exercise physiologist · Sport scientist · Biomechanist",
+      roles: "Clinical exercise physiologist · Sport scientist · Biomechanist · CPSS, CSCS,*D, ACSM-CEP",
       profile: "Stanford profile",
     },
     research: {
-      eyebrow: "Research",
-      title: "What I am working on now.",
+      eyebrow: "Translational Research Program",
+      title: "Six integrative pillars of precision exercise medicine.",
       intro:
-        "The work below reflects my current Stanford collaborations and outside sports-science partnerships.",
-      credentialsEyebrow: "Career highlights",
-      credentialsTitle: "Awards, invited talks, and service.",
+        "My research program bridges multi-omic molecular profiling at Stanford Medicine with clinical cardiopulmonary testing and high-performance sport biomechanics.",
+      credentialsEyebrow: "Extramural Support, Governance & Service",
+      credentialsTitle: "Research funding, fellowships, honors, and editorial leadership.",
       credentials: [
         {
-          meta: "NIH · NHLBI",
+          meta: "NIH · NHLBI & Wu Tsai Alliance",
           title: "LRP-REACH award and TIMBS fellowship",
-          body: "My current research is supported by a two-year LRP-REACH award. I also completed NIH T32 training in myocardial biology at Stanford from 2024 to 2026.",
+          body: "Supported by a two-year NIH/NHLBI LRP-REACH award (2026–2028), NIH T32 training in myocardial biology at Stanford (TIMBS, 2024–2026), and the Wu Tsai Human Performance Alliance Postdoctoral Fellowship (2022–2024).",
           href: "https://profiles.stanford.edu/samuel-montalvo-hernandez",
           action: "Stanford profile",
         },
         {
           meta: "CFDE · 2026",
           title: "Selected data-training proposal",
-          body: "Cataloging MoTrPAC and Metabolomics Workbench Data was selected for $5,000 in support from the NIH Common Fund Data Ecosystem.",
+          body: "Cataloging MoTrPAC and Metabolomics Workbench Data was selected for $5,000 in support from the NIH Common Fund Data Ecosystem to build RefMet-standardized harmonization training workflows.",
         },
         {
-          meta: "Invited talks · 2025",
-          title: "Henan University and UANL",
-          body: "I spoke on The Molecular Elite Athlete at Henan University and From Molecules to High Performance in Exercise Science at UANL.",
+          meta: "International honors & invited talks",
+          title: "Henan University, UANL, and FEMECAD / CODEME",
+          body: "Delivered invited lectures on The Molecular Elite Athlete at Henan University (2025) and From Molecules to High Performance in Exercise Science at UANL (2024 & 2025). Recipient of the FEMECAD/CODEME Scientific Research Recognition (2024) and the Confederación Deportiva Mexicana 'Luchador Olmeca' National Sports Award.",
         },
         {
-          meta: "Editorial leadership",
+          meta: "Editorial leadership & governance",
           title: "Senior Editor, Journal of Strength and Conditioning Research",
-          body: "I also serve as the exercise physiology and biomechanics section editor for the Journal of Taiji Science. In 2025, I co-directed Pablo Tadeo Ríos Gallardo's UANL thesis on vertical-jump technology.",
+          body: "Also serves as Section Editor (Exercise Physiology & Biomechanics) for the Journal of Taiji Science, Financial Officer of the Stanford University Postdoctoral Association (SURPAS, 2026–Present), Postdoctoral Mentoring Coach (Stanford OPA), mentor for Stanford PRISM and CVI MAVERICs, and co-director of Pablo Tadeo Ríos Gallardo's UANL thesis on vertical-jump technology (2025).",
           href: "https://www.wtsf.org/ojs/index.php/jts/en/Editorial_Board",
           action: "Taiji editorial board",
           secondaryHref: "https://eprints.uanl.mx/31086/1/1080263196.pdf",
@@ -93,13 +93,13 @@ const pageCopy = {
       eyebrow: "AI agents and research apps",
       title: "Software for research, teaching, and analysis.",
       intro:
-        "I build software for problems that come up in my research and teaching. Some projects are public; others are still in development.",
+        "I build open-source computational tools and AI workflows for multi-omic harmonization, CPET threshold autodetection, computer-vision biomechanics, and multilingual certification training.",
     },
     publications: {
-      eyebrow: "Publication record · Updated August 2026",
+      eyebrow: "Publication record · Updated October 2026",
       title: `${peerReviewedCount} peer-reviewed papers.`,
       intro:
-        `The complete record includes ${totalPublicationCount} papers, preprints, and published abstracts. I checked each item against PubMed, my Stanford profile, and publisher records.`,
+        `The complete record includes ${totalPublicationCount} papers, preprints, and published abstracts (523+ Google Scholar citations). Each record is verified against PubMed, my Stanford CAP profile, and publisher records.`,
       totalsLabel: "Publication totals",
       groups: {
         "peer-reviewed": "Peer-reviewed publications",
@@ -115,20 +115,20 @@ const pageCopy = {
       newTab: "opens in a new tab",
     },
     education: {
-      eyebrow: "Education and training",
+      eyebrow: "Education and academic training",
       title: "Training in exercise physiology, biomechanics, and bioinformatics.",
       intro:
-        "I trained in kinesiology, clinical exercise physiology, and biomechanics at the University of Texas at El Paso. At Stanford, my postdoctoral work has focused on human performance, myocardial biology, and bioinformatics.",
+        "I completed my BS, MS, and PhD in Interdisciplinary Health Sciences at The University of Texas at El Paso. At Stanford University School of Medicine, my postdoctoral training spans human performance, myocardial biology, and multi-omic bioinformatics.",
     },
     about: {
-      eyebrow: "About",
-      title: "I study exercise in clinical, laboratory, and performance settings.",
+      eyebrow: "About & Academic Affiliations",
+      title: "Integrating clinical exercise physiology, biomechanics, and multi-omics.",
       lead:
-        "I trained at the University of Texas at El Paso from my bachelor's degree through a doctorate in interdisciplinary health science.",
+        "I trained at The University of Texas at El Paso from my bachelor's degree through a doctorate in interdisciplinary health sciences (strength & conditioning and biomechanics), where I also served as a Clinical Research Associate in the CaPH Lab and Instructor of Kinesiology at El Paso Community College.",
       body:
-        "I came to Stanford in 2022 through the Wu Tsai Human Performance Alliance and joined Cardiovascular Medicine in 2024. My current work also connects with the Stanford Bioinformatics Core.",
+        "I joined Stanford University in 2022 as a Wu Tsai Human Performance Alliance Postdoctoral Fellow and transitioned to the Division of Cardiovascular Medicine in 2024. I am a member of the Stanford Cardiovascular Institute, the Wu Tsai Human Performance Alliance, and the Stanford Bioinformatics Core, and hold active memberships in the AHA, SACNAS, ACSM, and NSCA.",
       heritage:
-        "As a Mexican American scientist with Indigenous heritage, I care deeply about mentorship. I build teaching tools because exercise science should be easier to learn and use.",
+        "As a first-generation college graduate and Mexican American scientist with Indigenous heritage, I am committed to inclusive mentorship as a Stanford OPA Postdoctoral Mentoring Coach and mentor for Stanford PRISM and CVI MAVERICs.",
       imageAlt:
         "Samuel Montalvo, clinical exercise physiologist and sport scientist",
       cv: "View my CV",
@@ -159,12 +159,12 @@ const pageCopy = {
     },
     language: { label: "EN", aria: "EN · Ver sitio en inglés", href: "/" },
     hero: {
-      kicker: "Stanford Medicine · Medicina Cardiovascular",
-      title: "Estudio por qué cada persona responde",
-      titleAccent: "de manera distinta al ejercicio.",
+      kicker: "Stanford Medicine · División de Medicina Cardiovascular",
+      title: "Determinantes mecanísticos, fisiológicos y moleculares",
+      titleAccent: "de por qué cada persona responde de manera distinta al ejercicio.",
       intro:
-        "En Stanford, conecto mediciones fisiológicas de pacientes y deportistas con datos moleculares de MoTrPAC.",
-      primary: "Ver mis proyectos",
+        "Investigador posdoctoral en Medicina Cardiovascular en Stanford University; integro pruebas cardiopulmonares de ejercicio (CPET), biomecánica neuromuscular, ensayos de salud digital y multiómica multitejido en el consorcio MoTrPAC de los NIH.",
+      primary: "Ver programa de investigación",
       secondary: "Ver agentes y apps",
       domainsLabel: "Áreas de proyectos",
       domains: [
@@ -175,38 +175,38 @@ const pageCopy = {
         "Investigación clínica",
         "Agentes de IA + apps",
       ],
-      roles: "Fisiólogo clínico del ejercicio · Científico del deporte · Biomecánico",
+      roles: "Fisiólogo clínico del ejercicio · Científico del deporte · Biomecánico · CPSS, CSCS,*D, ACSM-CEP",
       profile: "Perfil de Stanford",
     },
     research: {
-      eyebrow: "Investigación",
-      title: "En qué estoy trabajando ahora.",
+      eyebrow: "Programa de Investigación Traslacional",
+      title: "Seis pilares integrativos de medicina del ejercicio de precisión.",
       intro:
-        "El trabajo que presento aquí refleja mis colaboraciones actuales en Stanford y con equipos externos de ciencias del deporte.",
-      credentialsEyebrow: "Trayectoria destacada",
-      credentialsTitle: "Premios, conferencias invitadas y servicio.",
+        "Mi programa de investigación conecta el perfilado molecular multiómico en Stanford Medicine con pruebas cardiopulmonares clínicas y biomecánica del alto rendimiento.",
+      credentialsEyebrow: "Financiamiento, Gobernanza y Servicio",
+      credentialsTitle: "Premios, becas, conferencias invitadas y liderazgo editorial.",
       credentials: [
         {
-          meta: "NIH · NHLBI",
+          meta: "NIH · NHLBI y Wu Tsai Alliance",
           title: "LRP-REACH y beca TIMBS",
-          body: "Mi investigación actual cuenta con el apoyo de un premio LRP-REACH de dos años. También completé la formación T32 de los NIH en biología del miocardio en Stanford entre 2024 y 2026.",
+          body: "Mi investigación cuenta con el apoyo de un premio NIH/NHLBI LRP-REACH de dos años (2026–2028), la formación posdoctoral T32 de los NIH en biología del miocardio en Stanford (TIMBS, 2024–2026) y la beca posdoctoral de la Wu Tsai Human Performance Alliance (2022–2024).",
           href: "https://profiles.stanford.edu/samuel-montalvo-hernandez",
           action: "Perfil de Stanford",
         },
         {
           meta: "CFDE · 2026",
           title: "Propuesta de formación seleccionada",
-          body: "Cataloging MoTrPAC and Metabolomics Workbench Data recibió $5,000 del NIH Common Fund Data Ecosystem.",
+          body: "Cataloging MoTrPAC and Metabolomics Workbench Data recibió $5,000 del NIH Common Fund Data Ecosystem para desarrollar módulos de armonización multiómica con RefMet.",
         },
         {
-          meta: "Conferencias invitadas · 2025",
-          title: "Henan University y UANL",
-          body: "Presenté The Molecular Elite Athlete en Henan University y From Molecules to High Performance in Exercise Science en la UANL.",
+          meta: "Distinciones y conferencias invitadas",
+          title: "Henan University, UANL y FEMECAD / CODEME",
+          body: "Presenté The Molecular Elite Athlete en Henan University (2025) y From Molecules to High Performance in Exercise Science en la UANL (2024 y 2025). Recibí el Reconocimiento a la Investigación Científica de FEMECAD/CODEME (2024) y el Premio Nacional 'Luchador Olmeca' de la CODEME.",
         },
         {
-          meta: "Liderazgo editorial",
+          meta: "Liderazgo editorial y gobernanza",
           title: "Editor sénior, Journal of Strength and Conditioning Research",
-          body: "También soy editor de la sección de fisiología del ejercicio y biomecánica del Journal of Taiji Science. En 2025 codirigí la tesis de Pablo Tadeo Ríos Gallardo en la UANL sobre tecnología para medir el salto vertical.",
+          body: "También soy editor de sección del Journal of Taiji Science, Oficial Financiero de la Asociación Posdoctoral de Stanford (SURPAS, 2026–Actualidad), coach de mentoría posdoctoral (Stanford OPA), mentor en Stanford PRISM y CVI MAVERICs, y codirector de la tesis de Pablo Tadeo Ríos Gallardo en la UANL (2025).",
           href: "https://www.wtsf.org/ojs/index.php/jts/en/Editorial_Board",
           action: "Comité editorial de Taiji",
           secondaryHref: "https://eprints.uanl.mx/31086/1/1080263196.pdf",
@@ -219,13 +219,13 @@ const pageCopy = {
       eyebrow: "Agentes de IA y aplicaciones de investigación",
       title: "Software para investigación, docencia y análisis.",
       intro:
-        "Desarrollo software para resolver problemas concretos de mi investigación y mi docencia. Algunos proyectos ya son públicos; otros siguen en desarrollo.",
+        "Desarrollo herramientas computacionales de código abierto y flujos con IA para armonización multiómica, detección de umbrales en CPET, biomecánica por visión artificial y formación multilingüe.",
     },
     publications: {
-      eyebrow: "Registro de publicaciones · Actualizado en agosto de 2026",
+      eyebrow: "Registro de publicaciones · Actualizado en octubre de 2026",
       title: `${peerReviewedCount} artículos revisados por pares.`,
       intro:
-        `El registro completo incluye ${totalPublicationCount} artículos, preprints y resúmenes publicados. Verifiqué cada registro en PubMed, mi perfil de Stanford y las fuentes editoriales.`,
+        `El registro completo incluye ${totalPublicationCount} artículos, preprints y resúmenes publicados (523+ citas en Google Scholar). Verifiqué cada registro en PubMed, mi perfil CAP de Stanford y las fuentes editoriales.`,
       totalsLabel: "Totales de publicaciones",
       groups: {
         "peer-reviewed": "Publicaciones revisadas por pares",
@@ -244,17 +244,17 @@ const pageCopy = {
       eyebrow: "Formación académica y posdoctoral",
       title: "Formación en fisiología del ejercicio, biomecánica y bioinformática.",
       intro:
-        "Me formé en kinesiología, fisiología clínica del ejercicio y biomecánica en la University of Texas at El Paso. En Stanford, mi trabajo posdoctoral se ha centrado en rendimiento humano, biología del miocardio y bioinformática.",
+        "Me formé en kinesiología, fisiología clínica del ejercicio y biomecánica en la University of Texas at El Paso. En Stanford, mi trabajo posdoctoral se ha centrado en rendimiento humano, biología del miocardio y bioinformática multiómica.",
     },
     about: {
-      eyebrow: "Sobre mí",
+      eyebrow: "Sobre mí y afiliaciones académicas",
       title: "Estudio el ejercicio en entornos clínicos, de laboratorio y de rendimiento.",
       lead:
-        "Me formé en la University of Texas at El Paso desde la licenciatura hasta el doctorado en ciencias interdisciplinarias de la salud.",
+        "Me formé en la University of Texas at El Paso desde la licenciatura hasta el doctorado en ciencias interdisciplinarias de la salud, donde también fui investigador clínico asociado en el laboratorio CaPH e instructor de kinesiología en El Paso Community College.",
       body:
-        "Llegué a Stanford en 2022 a través de la Wu Tsai Human Performance Alliance y me incorporé a Medicina Cardiovascular en 2024. Mi trabajo actual también se vincula con el Stanford Bioinformatics Core.",
+        "Llegué a Stanford en 2022 a través de la Wu Tsai Human Performance Alliance y me incorporé a Medicina Cardiovascular en 2024. Soy miembro del Stanford Cardiovascular Institute, la Wu Tsai Human Performance Alliance y el Stanford Bioinformatics Core, y participo activamente en AHA, SACNAS, ACSM y NSCA.",
       heritage:
-        "Como científico mexicoamericano con raíces indígenas, la mentoría es muy importante para mí. Desarrollo herramientas docentes porque la ciencia del ejercicio debe ser más fácil de aprender y utilizar.",
+        "Como universitario de primera generación y científico mexicoamericano con raíces indígenas, impulso la mentoría inclusiva como coach de mentoría en Stanford OPA y mentor en los programas Stanford PRISM y CVI MAVERICs.",
       imageAlt:
         "Samuel Montalvo, fisiólogo clínico del ejercicio y científico del deporte",
       cv: "Ver mi CV",
@@ -532,9 +532,23 @@ const footerLinks = [
 
 const recentUpdatesByLocale = {
   en: {
-    eyebrow: "Recent updates",
+    eyebrow: "Recent updates · October 2026",
     title: "2026",
     items: [
+      {
+        date: "Sep 19",
+        dateTime: "2026-09-19",
+        text: "Our first-author MoTrPAC study mapping sedentary human fitness, clinical features, multi-omic baseline architecture, and acute exercise dynamics was published in Medicine & Science in Sports & Exercise.",
+        href: "https://doi.org/10.1249/01.mss.0001263628.46584.b4",
+        action: "DOI",
+      },
+      {
+        date: "Sep 19",
+        dateTime: "2026-09-19-msse",
+        text: "Our MoTrPAC analysis demonstrating accelerometry as an independent predictor of cardiorespiratory fitness in sedentary adults was published in Medicine & Science in Sports & Exercise.",
+        href: "https://doi.org/10.1249/01.mss.0001260292.05388.29",
+        action: "DOI",
+      },
       {
         date: "Aug 21",
         dateTime: "2026-08-21",
@@ -552,16 +566,30 @@ const recentUpdatesByLocale = {
       {
         date: "2026",
         dateTime: "2026",
-        text: "I received a two-year NHLBI LRP-REACH award for research in precision exercise medicine.",
+        text: "I received a two-year NHLBI LRP-REACH award for research in precision exercise medicine and was appointed Senior Editor at JSCR and SURPAS Financial Officer.",
         href: "https://profiles.stanford.edu/samuel-montalvo-hernandez",
         action: "Stanford profile",
       },
     ],
   },
   es: {
-    eyebrow: "Novedades",
+    eyebrow: "Novedades · Octubre de 2026",
     title: "2026",
     items: [
+      {
+        date: "19 sep.",
+        dateTime: "2026-09-19",
+        text: "Nuestro estudio como primer autor en MoTrPAC sobre aptitud física, arquitectura multiómica basal y dinámica del ejercicio agudo se publicó en Medicine & Science in Sports & Exercise.",
+        href: "https://doi.org/10.1249/01.mss.0001263628.46584.b4",
+        action: "DOI",
+      },
+      {
+        date: "19 sep.",
+        dateTime: "2026-09-19-msse",
+        text: "Nuestro análisis de MoTrPAC sobre acelerometría como predictor independiente de la aptitud cardiorrespiratoria en adultos sedentarios se publicó en Medicine & Science in Sports & Exercise.",
+        href: "https://doi.org/10.1249/01.mss.0001260292.05388.29",
+        action: "DOI",
+      },
       {
         date: "21 ago.",
         dateTime: "2026-08-21",
@@ -579,7 +607,7 @@ const recentUpdatesByLocale = {
       {
         date: "2026",
         dateTime: "2026",
-        text: "Recibí un premio NHLBI LRP-REACH de dos años para investigar medicina del ejercicio de precisión.",
+        text: "Recibí un premio NHLBI LRP-REACH de dos años para investigar medicina del ejercicio de precisión y fui nombrado Editor Sénior en JSCR y Oficial Financiero de SURPAS.",
         href: "https://profiles.stanford.edu/samuel-montalvo-hernandez",
         action: "Perfil de Stanford",
       },
@@ -1022,6 +1050,7 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
           <div className="about-badge">
             <span>CPSS</span>
             <span>CSCS,*D</span>
+            <span>ACSM-CEP</span>
           </div>
         </div>
         <div className="about-copy">

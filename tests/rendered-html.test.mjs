@@ -34,8 +34,8 @@ test("server-renders the finished research profile", async () => {
     /<title>Samuel Montalvo, PhD \| Personalized Exercise Medicine<\/title>/i,
   );
   assert.match(html, /<html lang="en">/);
-  assert.match(html, /I study why people respond/);
-  assert.match(html, /differently to exercise/);
+  assert.match(html, /Mechanistic, physiological, and molecular determinants/);
+  assert.match(html, /why people respond differently to exercise/);
   assert.match(html, /MoTrPAC/);
   assert.match(html, /High-performance sport/);
   assert.match(html, /Cardiopulmonary exercise testing/);
@@ -76,7 +76,7 @@ test("server-renders the finished research profile", async () => {
   assert.match(html, /exercise-science-exam-prep\.netlify\.app/);
   assert.match(html, /mailto:smontal@stanford\.edu/);
   assert.match(html, /49(?:<!-- -->)? peer-reviewed papers/);
-  assert.match(html, /complete record includes (?:<!-- -->)?95/);
+  assert.match(html, /complete record includes (?:<!-- -->)?100/);
   assert.match(html, /Selected papers/);
   assert.match(html, /Papers that show the direction of my work/);
   assert.match(html, /Sex-Specific Electrocardiographic Criteria for Left Ventricular Hypertrophy/);
@@ -90,9 +90,11 @@ test("server-renders the finished research profile", async () => {
   assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/40358569/);
   assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/42395096/);
   assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/35620608/);
+  assert.match(html, /10\.1249\/01\.mss\.0001263628\.46584\.b4/);
+  assert.match(html, /10\.1249\/01\.mss\.0001260292\.05388\.29/);
   assert.match(html, /Peer-reviewed publications/);
   assert.match(html, /Published abstracts &amp; proceedings/);
-  assert.equal((html.match(/class="publication-source"/g) ?? []).length, 95);
+  assert.equal((html.match(/class="publication-source"/g) ?? []).length, 100);
   assert.doesNotMatch(html, /<details[^>]+open/);
   assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/42580351/);
   assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/40859825/);
@@ -134,8 +136,8 @@ test("serves a complete Spanish translation with an English switch", async () =>
   );
   assert.match(html, /<html lang="es">/);
   assert.match(html, /<main lang="es">/);
-  assert.match(html, /Estudio por qué cada persona responde/);
-  assert.match(html, /de manera distinta al ejercicio/);
+  assert.match(html, /Determinantes mecanísticos, fisiológicos y moleculares/);
+  assert.match(html, /por qué cada persona responde de manera distinta al ejercicio/);
   assert.match(html, /Alto rendimiento deportivo/);
   assert.match(html, /Prueba cardiopulmonar de ejercicio/);
   assert.match(html, /ECG y cardiología deportiva/);
@@ -189,8 +191,8 @@ test("ships site-specific metadata and accessible assets", async () => {
   assert.match(page, /className="language-switch"/);
   assert.doesNotMatch(page, /atlas-grid|ring-one|jump-person/);
   assert.match(spanishPage, /PortfolioPage locale="es"/);
-  assert.equal((publicationData.match(/"citation":/g) ?? []).length, 95);
-  assert.equal((publicationData.match(/"href":/g) ?? []).length, 95);
+  assert.equal((publicationData.match(/"citation":/g) ?? []).length, 100);
+  assert.equal((publicationData.match(/"href":/g) ?? []).length, 100);
   assert.equal((publicationData.match(/"label": "PubMed"/g) ?? []).length, 38);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
   assert.match(styles, /\.selected-papers-heading h2\s*\{[^}]*font-family:\s*var\(--serif\)[^}]*line-height:\s*1;/s);

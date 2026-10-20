@@ -391,6 +391,13 @@ export const publicationGroups = [
         "citation": "Mantena, S., Johnson, A., Schuetz, N., Tolas, A., Montalvo, S., Delgado-SanMartin, J., Ramirez-Posada, M., Du, L., Zhang, S., Huynh, A. D., Oppezzo, M., King, A. C., Schmiedmayer, P., Lawrie, A., Rodriguez, F., Ashley, E. A., & Kim, D. S. (2026). Grounding Language Models in Behavioral Science to Scale Physical Activity Interventions for Hispanic/Latinx Populations. medRxiv.",
         "href": "https://doi.org/10.64898/2026.05.26.26354165",
         "label": "DOI"
+      },
+      {
+        "id": "preprints-6",
+        "year": "2026",
+        "citation": "Tolas, A., Johnson, A., Schütz, N., Montalvo, S., et al., & Kim, D. S. (2026). Population-Based Prediction Equations for the 6-Minute Walk Test: Findings From the My Heart Counts Study. Preprint.",
+        "href": "https://www.researchgate.net/profile/Samuel-Montalvo",
+        "label": "Repository"
       }
     ]
   },
@@ -399,6 +406,34 @@ export const publicationGroups = [
     "label": "Published abstracts & proceedings",
     "initiallyOpen": false,
     "items": [
+      {
+        "id": "abstracts-0a",
+        "year": "2026",
+        "citation": "Montalvo, S., Rao, P., Vetr, N. G., Sutton, K., Leslie, E., Brochet, P., Jin, C. A., Many, G. M., Iyer, G., Ahn, C., Taylor, T., Amar, D., Brandt, A. B., Coen, P. M., Alvarez Carnero, E., Coyne, B., Christle, J. W., Moreau, K. L., Sparks, L. M., Walsh, M. J., Trappe, S., Burant, C. F., Goodpaster, B. H., Xia, A. Y., Kraus, W. E., Gerszten, R. E., Wheeler, M. T., Katz, D. H., & Robbins, J. M. (2026). Mapping Sedentary Human Fitness And Clinical Features: Multi-omic Baseline Architecture And Acute Exercise Dynamics In The Molecular Transducers Of Physical Activity Consortium (MoTrPAC) Project. Medicine & Science in Sports & Exercise, 58(10S), 1603.",
+        "href": "https://doi.org/10.1249/01.mss.0001263628.46584.b4",
+        "label": "DOI"
+      },
+      {
+        "id": "abstracts-0b",
+        "year": "2026",
+        "citation": "Leslie, E., Montalvo, S., Chen, S., Fanning, J., Jakicic, J. M., Johannsen, N. M., Melanson, E. L., Rejeski, W. J., Katz, D., Ashley, E., & Wheeler, M. T. (2026). Accelerometry As An Independent Predictor For Cardiorespiratory Fitness In Sedentary Adults: A MoTrPAC Study Analysis. Medicine & Science in Sports & Exercise, 58(10S), 530.",
+        "href": "https://doi.org/10.1249/01.mss.0001260292.05388.29",
+        "label": "DOI"
+      },
+      {
+        "id": "abstracts-0c",
+        "year": "2026",
+        "citation": "Ríos-Gallardo, P. T., Aguila, A., Dorgo, S., & Montalvo, S. (2026). Elastic Deficit Prevalence and Neuromuscular Phenotypes in University Athletes: An International Five-Country Cross-Sectional Study. Conference Proceedings.",
+        "href": "https://www.researchgate.net/profile/Samuel-Montalvo",
+        "label": "Repository"
+      },
+      {
+        "id": "abstracts-0d",
+        "year": "2026",
+        "citation": "Ríos-Gallardo, P. T., Dueñas, L., Gaona-Carranza, I. J., Montalvo, S., & Dorgo, S. (2026). The 'Strategy Shift' in Pediatric Jump Mechanics. Conference Presentation.",
+        "href": "https://www.researchgate.net/profile/Samuel-Montalvo",
+        "label": "Repository"
+      },
       {
         "id": "abstracts-1",
         "year": "2026",
