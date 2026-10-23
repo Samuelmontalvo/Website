@@ -764,7 +764,7 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
             <a className="button button-primary" href="#projects">
               {copy.hero.primary} {arrowIcon}
             </a>
-            <a className="button button-secondary" href={locale === "es" ? "/samuel-montalvo-cv-es.pdf" : "/samuel-montalvo-cv.pdf"} target="_blank" rel="noreferrer">
+            <a className="button button-secondary" href={locale === "es" ? "/samuel-montalvo-cv-es.pdf" : "/samuel-montalvo-cv.pdf?v=20261021"} target="_blank" rel="noreferrer">
               {copy.hero.secondary} <span aria-hidden="true">↓</span>
             </a>
           </div>
@@ -817,7 +817,7 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
               href={
                 locale === "es"
                   ? "/samuel-montalvo-cv-es.pdf"
-                  : "/samuel-montalvo-cv.pdf"
+                  : "/samuel-montalvo-cv.pdf?v=20261021"
               }
               target="_blank"
               rel="noreferrer"

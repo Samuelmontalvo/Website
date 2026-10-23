@@ -7,6 +7,10 @@ The site includes English and Spanish pages, research areas, software projects,
 selected papers, the publication record, education and service, and downloadable
 CVs in both languages.
 
+The English CV download uses the final English PDF from `Academic_Sam`, dated
+October 21, 2026. Both English download links include a version parameter so
+returning visitors receive the updated file.
+
 The October 23, 2026 design refresh uses a restrained white, gray, and Stanford
 cardinal palette, with a responsive introduction and interactive research and
 workflow maps. The maps describe the relationships between research activities;
