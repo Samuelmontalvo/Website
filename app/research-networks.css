@@ -1,0 +1,391 @@
+.rm-network {
+  --rm-cardinal: #8c1515;
+  --rm-ink: #2e2d29;
+  --rm-muted: #686760;
+  --rm-border: #e4e3de;
+  color: var(--rm-ink);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 48px 0;
+}
+
+.rm-heading {
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+
+.rm-eyebrow {
+  display: block;
+  color: var(--rm-cardinal);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.rm-heading h3 {
+  margin: 9px 0 12px;
+  color: var(--rm-ink);
+  font-family: inherit;
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 650;
+  letter-spacing: -.035em;
+  line-height: 1.2;
+}
+
+.rm-heading p {
+  max-width: 680px;
+  margin: 0;
+  color: var(--rm-muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.rm-canvas {
+  overflow: hidden;
+  border: 1px solid var(--rm-border);
+  border-radius: 12px;
+  background: #f7f7f5;
+}
+
+.rm-canvas-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 26px 0;
+}
+
+.rm-map-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--rm-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.rm-map-key > span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--rm-cardinal);
+}
+
+.rm-map-index {
+  color: #99978e;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .07em;
+}
+
+.rm-stage-labels {
+  display: grid;
+  grid-template-columns: 24% 51% 25%;
+  margin: 25px 0 -10px;
+  color: #85837b;
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: .1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.rm-diagram {
+  position: relative;
+  isolation: isolate;
+  height: 340px;
+  margin: 0 20px;
+}
+
+.rm-diagram--workflow {
+  height: 320px;
+  margin: 0 24px;
+}
+
+.rm-connections {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: none;
+  pointer-events: none;
+}
+
+.rm-connections .rm-edge {
+  fill: none;
+  stroke: #d4d1c9;
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+  transition: stroke .2s ease;
+}
+
+.rm-connections .rm-edge--active {
+  stroke: #b47b75;
+}
+
+.rm-node {
+  position: absolute;
+  z-index: 1;
+  top: var(--node-y);
+  left: var(--node-x);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  justify-content: flex-start;
+  width: 24%;
+  min-height: 60px;
+  margin: 0;
+  padding: 14px 15px;
+  transform: translate(-50%, -50%);
+  border: 1px solid #dddbd3;
+  border-radius: 7px;
+  background: #fff;
+  color: var(--rm-ink);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 550;
+  line-height: 1.45;
+  text-align: left;
+  box-shadow: 0 2px 3px #2e2d2903;
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.rm-node:hover {
+  border-color: #b47b75;
+  box-shadow: 0 3px 10px #2e2d2908;
+}
+
+.rm-node:focus-visible {
+  outline: 2px solid var(--rm-cardinal);
+  outline-offset: 4px;
+}
+
+.rm-node--hub {
+  width: 25%;
+  min-height: 78px;
+  border-color: #8c1515;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.rm-node--selected {
+  border-color: var(--rm-cardinal);
+  background: #fcf5f3;
+}
+
+.rm-node--hub.rm-node--selected {
+  background: var(--rm-cardinal);
+  color: #fff;
+}
+
+.rm-node-dot {
+  flex: 0 0 5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #b0aaa0;
+}
+
+.rm-node--selected .rm-node-dot {
+  background: var(--rm-cardinal);
+}
+
+.rm-node--hub.rm-node--selected .rm-node-dot {
+  background: #f5d4cc;
+}
+
+.rm-diagram--workflow .rm-node {
+  width: 21%;
+  min-height: 58px;
+  padding: 12px;
+  font-size: 11px;
+}
+
+.rm-diagram--workflow .rm-node--hub {
+  min-height: 76px;
+}
+
+.rm-detail {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(170px, .8fr) minmax(0, 1.7fr);
+  gap: 30px;
+  align-items: start;
+  padding: 25px 28px 27px;
+  border-top: 1px solid var(--rm-border);
+  background: #fff;
+}
+
+.rm-detail h4 {
+  margin: 7px 0 0;
+  color: var(--rm-ink);
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -.025em;
+  line-height: 1.35;
+}
+
+.rm-detail-copy p {
+  min-height: 64px;
+  margin: 0 0 12px;
+  color: var(--rm-muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.rm-detail-copy a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  color: var(--rm-cardinal);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+  text-underline-offset: 4px;
+}
+
+.rm-detail-copy a:hover {
+  text-decoration: underline;
+}
+
+.rm-detail-copy a:focus-visible {
+  outline: 2px solid var(--rm-cardinal);
+  outline-offset: 4px;
+}
+
+.rm-footnote {
+  max-width: 690px;
+  margin: 12px 0 0;
+  color: var(--rm-muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+@media (max-width: 720px) {
+  .rm-network {
+    margin: 36px 0;
+  }
+
+  .rm-diagram {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 20px;
+    height: auto;
+    margin: 24px 20px 28px;
+  }
+
+  .rm-diagram::before {
+    position: absolute;
+    z-index: -1;
+    top: 25px;
+    bottom: 25px;
+    left: 50%;
+    width: 1px;
+    background: #d4d1c9;
+    content: "";
+  }
+
+  .rm-connections,
+  .rm-stage-labels {
+    display: none;
+  }
+
+  .rm-node,
+  .rm-diagram--workflow .rm-node {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    min-height: 68px;
+    padding: 12px 14px;
+    transform: none;
+    font-size: 12px;
+  }
+
+  .rm-node::before,
+  .rm-node::after {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    width: 11px;
+    height: 1px;
+    background: #d4d1c9;
+    content: "";
+  }
+
+  .rm-node::before { left: -11px; }
+  .rm-node::after { right: -11px; }
+
+  .rm-node--hub,
+  .rm-node--clinical,
+  .rm-node--molecular,
+  .rm-node--outputs {
+    grid-column: 1 / -1;
+    justify-content: center;
+    min-height: 64px;
+    text-align: center;
+  }
+
+  .rm-node--hub::before,
+  .rm-node--hub::after,
+  .rm-node--clinical::before,
+  .rm-node--clinical::after,
+  .rm-node--molecular::before,
+  .rm-node--molecular::after,
+  .rm-node--outputs::before,
+  .rm-node--outputs::after {
+    display: none;
+  }
+
+  .rm-diagram--research .rm-node--hub {
+    margin: 0 22px;
+  }
+
+  .rm-diagram--workflow .rm-node--molecular {
+    margin: 0 22px;
+  }
+
+  .rm-detail {
+    grid-template-columns: 1fr;
+    gap: 13px;
+    padding: 22px;
+  }
+
+  .rm-detail-copy p {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .rm-canvas-topline {
+    padding: 17px 17px 0;
+  }
+
+  .rm-diagram {
+    margin-right: 13px;
+    margin-left: 13px;
+    column-gap: 16px;
+  }
+
+  .rm-node,
+  .rm-diagram--workflow .rm-node {
+    gap: 7px;
+    padding: 11px 10px;
+    font-size: 11px;
+  }
+
+  .rm-detail {
+    padding: 19px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rm-network *,
+  .rm-network *::before {
+    transition: none;
+  }
+}

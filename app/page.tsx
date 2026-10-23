@@ -1,6 +1,8 @@
 import { ProjectAreas } from "./project-areas";
 import { publicationGroups, totalPublicationCount } from "./publications-data";
 import { SelectedPapers } from "./selected-papers";
+import { ResearchNetworks } from "./research-networks";
+import { MobileMenu } from "./mobile-menu";
 
 const peerReviewedCount =
   publicationGroups.find((group) => group.id === "peer-reviewed")?.items.length ?? 0;
@@ -24,22 +26,22 @@ const pageCopy = {
     skip: "Skip to content",
     mainNav: "Main navigation",
     nav: {
-      research: "Projects",
-      tools: "Agents & apps",
+      research: "Research",
+      tools: "AI ecosystem",
       publications: "Publications",
-      education: "Education",
+      education: "Background",
       about: "About",
-      contact: "Contact me",
+      contact: "Contact",
     },
     language: { label: "ES", aria: "ES · View site in Spanish", href: "/es" },
     hero: {
       kicker: "Stanford Medicine · Division of Cardiovascular Medicine",
-      title: "Mechanistic, physiological, and molecular determinants",
-      titleAccent: "of why people respond differently to exercise.",
+      title: "Personalized exercise medicine",
+      titleAccent: "Why do we respond differently to exercise?",
       intro:
-        "Postdoctoral Scholar in Cardiovascular Medicine at Stanford University integrating cardiopulmonary exercise testing (CPET), neuromuscular biomechanics, digital health trials, and multi-tissue multi-omics within the NIH Molecular Transducers of Physical Activity Consortium (MoTrPAC).",
-      primary: "View research program",
-      secondary: "View agents & apps",
+        "I study how physiology, biomechanics, and molecular biology shape our response to exercise, connecting clinical testing and multi-omics with human performance and digital health.",
+      primary: "Explore my research",
+      secondary: "Download CV",
       domainsLabel: "Project areas",
       domains: [
         "MoTrPAC",
@@ -54,11 +56,11 @@ const pageCopy = {
     },
     research: {
       eyebrow: "Translational Research Program",
-      title: "Six integrative pillars of precision exercise medicine.",
+      title: "From molecules to human performance.",
       intro:
-        "My research program bridges multi-omic molecular profiling at Stanford Medicine with clinical cardiopulmonary testing and high-performance sport biomechanics.",
+        "My research connects the molecular response to exercise with what we can measure in the clinic and on the field. Six complementary areas inform one question: why people respond differently to exercise.",
       credentialsEyebrow: "Extramural Support, Governance & Service",
-      credentialsTitle: "Research funding, fellowships, honors, and editorial leadership.",
+      credentialsTitle: "Support, service, and mentorship.",
       credentials: [
         {
           meta: "NIH · NHLBI & Wu Tsai Alliance",
@@ -99,7 +101,7 @@ const pageCopy = {
       eyebrow: "Publication record · Updated October 2026",
       title: `${peerReviewedCount} peer-reviewed papers.`,
       intro:
-        `The complete record includes ${totalPublicationCount} papers, preprints, and published abstracts (523+ Google Scholar citations). Each record is verified against PubMed, my Stanford CAP profile, and publisher records.`,
+        `The complete record includes ${totalPublicationCount} papers, preprints, and published abstracts. Browse by category or visit Google Scholar for citation metrics.`,
       totalsLabel: "Publication totals",
       groups: {
         "peer-reviewed": "Peer-reviewed publications",
@@ -116,13 +118,13 @@ const pageCopy = {
     },
     education: {
       eyebrow: "Education and academic training",
-      title: "Training in exercise physiology, biomechanics, and bioinformatics.",
+      title: "Academic background.",
       intro:
-        "I completed my BS, MS, and PhD in Interdisciplinary Health Sciences at The University of Texas at El Paso. At Stanford University School of Medicine, my postdoctoral training spans human performance, myocardial biology, and multi-omic bioinformatics.",
+        "My training began in kinesiology at The University of Texas at El Paso, followed by a PhD in Interdisciplinary Health Science. At Stanford, my postdoctoral work spans human performance, myocardial biology, and bioinformatics.",
     },
     about: {
       eyebrow: "About & Academic Affiliations",
-      title: "Integrating clinical exercise physiology, biomechanics, and multi-omics.",
+      title: "A view of exercise across scales.",
       lead:
         "I trained at The University of Texas at El Paso from my bachelor's degree through a doctorate in interdisciplinary health sciences (strength & conditioning and biomechanics), where I also served as a Clinical Research Associate in the CaPH Lab and Instructor of Kinesiology at El Paso Community College.",
       body:
@@ -150,8 +152,8 @@ const pageCopy = {
     skip: "Ir al contenido",
     mainNav: "Navegación principal",
     nav: {
-      research: "Proyectos",
-      tools: "Agentes y apps",
+      research: "Investigación",
+      tools: "Ecosistema de IA",
       publications: "Publicaciones",
       education: "Formación",
       about: "Sobre mí",
@@ -160,12 +162,12 @@ const pageCopy = {
     language: { label: "EN", aria: "EN · Ver sitio en inglés", href: "/" },
     hero: {
       kicker: "Stanford Medicine · División de Medicina Cardiovascular",
-      title: "Determinantes mecanísticos, fisiológicos y moleculares",
-      titleAccent: "de por qué cada persona responde de manera distinta al ejercicio.",
+      title: "Medicina del ejercicio personalizada",
+      titleAccent: "¿Por qué respondemos de manera distinta al ejercicio?",
       intro:
-        "Investigador posdoctoral en Medicina Cardiovascular en Stanford University; integro pruebas cardiopulmonares de ejercicio (CPET), biomecánica neuromuscular, ensayos de salud digital y multiómica multitejido en el consorcio MoTrPAC de los NIH.",
-      primary: "Ver programa de investigación",
-      secondary: "Ver agentes y apps",
+        "Estudio cómo la fisiología, la biomecánica y la biología molecular influyen en nuestra respuesta al ejercicio, conectando las pruebas clínicas y la multiómica con el rendimiento humano y la salud digital.",
+      primary: "Explorar mi investigación",
+      secondary: "Descargar CV",
       domainsLabel: "Áreas de proyectos",
       domains: [
         "MoTrPAC",
@@ -180,11 +182,11 @@ const pageCopy = {
     },
     research: {
       eyebrow: "Programa de Investigación Traslacional",
-      title: "Seis pilares integrativos de medicina del ejercicio de precisión.",
+      title: "De las moléculas al rendimiento humano.",
       intro:
         "Mi programa de investigación conecta el perfilado molecular multiómico en Stanford Medicine con pruebas cardiopulmonares clínicas y biomecánica del alto rendimiento.",
       credentialsEyebrow: "Financiamiento, Gobernanza y Servicio",
-      credentialsTitle: "Premios, becas, conferencias invitadas y liderazgo editorial.",
+      credentialsTitle: "Apoyo, servicio y mentoría.",
       credentials: [
         {
           meta: "NIH · NHLBI y Wu Tsai Alliance",
@@ -225,7 +227,7 @@ const pageCopy = {
       eyebrow: "Registro de publicaciones · Actualizado en octubre de 2026",
       title: `${peerReviewedCount} artículos revisados por pares.`,
       intro:
-        `El registro completo incluye ${totalPublicationCount} artículos, preprints y resúmenes publicados (523+ citas en Google Scholar). Verifiqué cada registro en PubMed, mi perfil CAP de Stanford y las fuentes editoriales.`,
+        `El registro completo incluye ${totalPublicationCount} artículos, preprints y resúmenes publicados. Explore las categorías o consulte las métricas de citas en Google Scholar.`,
       totalsLabel: "Totales de publicaciones",
       groups: {
         "peer-reviewed": "Publicaciones revisadas por pares",
@@ -242,13 +244,13 @@ const pageCopy = {
     },
     education: {
       eyebrow: "Formación académica y posdoctoral",
-      title: "Formación en fisiología del ejercicio, biomecánica y bioinformática.",
+      title: "Trayectoria académica.",
       intro:
         "Me formé en kinesiología, fisiología clínica del ejercicio y biomecánica en la University of Texas at El Paso. En Stanford, mi trabajo posdoctoral se ha centrado en rendimiento humano, biología del miocardio y bioinformática multiómica.",
     },
     about: {
       eyebrow: "Sobre mí y afiliaciones académicas",
-      title: "Estudio el ejercicio en entornos clínicos, de laboratorio y de rendimiento.",
+      title: "Una visión del ejercicio a distintas escalas.",
       lead:
         "Me formé en la University of Texas at El Paso desde la licenciatura hasta el doctorado en ciencias interdisciplinarias de la salud, donde también fui investigador clínico asociado en el laboratorio CaPH e instructor de kinesiología en El Paso Community College.",
       body:
@@ -512,6 +514,8 @@ const educationByLocale = {
 } as const;
 
 const footerLinks = [
+  { label: "GitHub", href: "https://github.com/Samuelmontalvo" },
+  { label: "ORCID", href: "https://orcid.org/0000-0003-3104-3428" },
   {
     label: "ResearchGate",
     href: "https://www.researchgate.net/profile/Samuel-Montalvo",
@@ -712,17 +716,18 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
 
       <nav className="topbar" aria-label={copy.mainNav}>
         <a className="wordmark" href="#top">
-          <span>SM</span>
-          <strong>Samuel Montalvo, PhD</strong>
+          <strong>Samuel Montalvo<span>, PhD</span></strong>
         </a>
         <div className="nav-links">
+          <a href="#about">{copy.nav.about}</a>
           <a href="#projects">{copy.nav.research}</a>
           <a href="#tools">{copy.nav.tools}</a>
           <a href="#publications">{copy.nav.publications}</a>
           <a href="#education">{copy.nav.education}</a>
-          <a href="#about">{copy.nav.about}</a>
+          <a href="#contact">{copy.nav.contact}</a>
         </div>
         <div className="nav-actions">
+          <span className="language-current" aria-label={locale === "en" ? "Current language: English" : "Idioma actual: español"}>{locale.toUpperCase()}</span>
           <a
             className="language-switch"
             href={copy.language.href}
@@ -732,41 +737,42 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
           >
             {copy.language.label}
           </a>
-          <a className="nav-contact" href="mailto:smontal@stanford.edu">
-            {copy.nav.contact} {arrowIcon}
-          </a>
         </div>
+        <MobileMenu label={locale === "es" ? "Menú" : "Menu"} navigationLabel={locale === "es" ? "Secciones" : "Sections"}>
+            <a href="#about">{copy.nav.about}</a>
+            <a href="#projects">{copy.nav.research}</a>
+            <a href="#tools">{copy.nav.tools}</a>
+            <a href="#publications">{copy.nav.publications}</a>
+            <a href="#education">{copy.nav.education}</a>
+            <a href="#contact">{copy.nav.contact}</a>
+        </MobileMenu>
       </nav>
 
       <header className="hero" id="top">
-        <div className="hero-orbit" aria-hidden="true">
-          <span className="orbit orbit-one" />
-          <span className="orbit orbit-two" />
-          <span className="orbit orbit-three" />
-        </div>
-        <div className="hero-copy" id="main-content">
+        <div className="hero-copy" id="main-content" tabIndex={-1}>
           <div className="hero-kicker">
-            <span className="kicker-dot" />
-            {copy.hero.kicker}
+            {locale === "es" ? "Investigador posdoctoral · Stanford Medicine" : "Postdoctoral Scholar · Stanford Medicine"}
           </div>
           <h1>
-            {copy.hero.title}
-            <span>{copy.hero.titleAccent}</span>
+            Samuel Montalvo<span>, PhD</span>
           </h1>
+          <p className="hero-focus">{copy.hero.title}</p>
+          <p className="hero-question">{copy.hero.titleAccent}</p>
           <p className="hero-intro">{copy.hero.intro}</p>
+          <p className="hero-affiliation">{copy.hero.kicker}<br />Wu Tsai Human Performance Alliance</p>
           <div className="hero-actions">
             <a className="button button-primary" href="#projects">
               {copy.hero.primary} {arrowIcon}
             </a>
-            <a className="button button-secondary" href="#tools">
-              {copy.hero.secondary}
+            <a className="button button-secondary" href={locale === "es" ? "/samuel-montalvo-cv-es.pdf" : "/samuel-montalvo-cv.pdf"} target="_blank" rel="noreferrer">
+              {copy.hero.secondary} <span aria-hidden="true">↓</span>
             </a>
           </div>
-          <div className="hero-domains" aria-label={copy.hero.domainsLabel}>
-            {copy.hero.domains.map((domain) => (
-              <span key={domain}>{domain}</span>
-            ))}
-          </div>
+          <nav className="hero-links" aria-label={copy.footer.profilesLabel}>
+            <a href="https://scholar.google.com/citations?user=whonnOUAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar {externalIcon}</a>
+            <a href="https://orcid.org/0000-0003-3104-3428" target="_blank" rel="noreferrer">ORCID {externalIcon}</a>
+            <a href="https://github.com/Samuelmontalvo" target="_blank" rel="noreferrer">GitHub {externalIcon}</a>
+          </nav>
         </div>
         <aside
           className="profile-card"
@@ -776,18 +782,16 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
             <img
               src="/samuel-montalvo-800.jpg"
               srcSet="/samuel-montalvo-480.jpg 480w, /samuel-montalvo-800.jpg 800w"
-              sizes="(max-width: 600px) calc(100vw - 50px), (max-width: 850px) calc(100vw - 76px), 380px"
+              sizes="(max-width: 760px) 200px, 280px"
               alt={locale === "es" ? "Retrato de Samuel Montalvo" : "Portrait of Samuel Montalvo"}
               width="620"
               height="620"
-              loading="lazy"
+              loading="eager"
               decoding="async"
             />
-            <span className="portrait-accent" />
           </div>
           <div className="profile-details">
             <div>
-              <span>Samuel Montalvo, PhD</span>
               <p>{copy.hero.roles}</p>
             </div>
             <a
@@ -801,6 +805,38 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
         </aside>
       </header>
 
+      <section className="about-section section-shell" id="about">
+        <div className="about-copy">
+          <span className="eyebrow">{copy.about.eyebrow}</span>
+          <h2>{copy.about.title}</h2>
+          <p className="about-lead">{copy.about.lead}</p>
+          <p>{copy.about.body}</p>
+          <p>{copy.about.heritage}</p>
+          <div className="about-links">
+            <a
+              href={
+                locale === "es"
+                  ? "/samuel-montalvo-cv-es.pdf"
+                  : "/samuel-montalvo-cv.pdf"
+              }
+              target="_blank"
+              rel="noreferrer"
+            >
+              {copy.about.cv} {externalIcon}
+            </a>
+            <a href="https://github.com/Samuelmontalvo" target="_blank" rel="noreferrer">
+              {copy.about.github} {externalIcon}
+            </a>
+          </div>
+        </div>
+        <aside className="about-context" aria-label={locale === "es" ? "Afiliación y especialidad" : "Affiliation and expertise"}>
+          <div><span>{locale === "es" ? "Institución" : "Institution"}</span><p>Stanford University<br />School of Medicine</p></div>
+          <div><span>{locale === "es" ? "Área" : "Focus"}</span><p>{locale === "es" ? "Fisiología del ejercicio · Biomecánica · Multiómica" : "Exercise physiology · Biomechanics · Multi-omics"}</p></div>
+          <div><span>{locale === "es" ? "Certificaciones" : "Credentials"}</span><p>CPSS · CSCS,*D · ACSM-CEP</p></div>
+          <a href="https://profiles.stanford.edu/samuel-montalvo-hernandez" target="_blank" rel="noreferrer">{copy.hero.profile} {externalIcon}</a>
+        </aside>
+      </section>
+
       <section className="research-section section-shell" id="projects">
         <div className="section-heading split-heading">
           <div>
@@ -809,42 +845,8 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
           </div>
           <p>{copy.research.intro}</p>
         </div>
+        <ResearchNetworks locale={locale} kind="research" />
         <ProjectAreas locale={locale} />
-        <div className="credentials-block">
-          <div className="credentials-heading">
-            <span className="eyebrow">{copy.research.credentialsEyebrow}</span>
-            <h3>{copy.research.credentialsTitle}</h3>
-          </div>
-          <div className="credentials-grid">
-            {copy.research.credentials.map((item) => (
-              <article className="credential-card" key={item.title}>
-                <span>{item.meta}</span>
-                <h4>{item.title}</h4>
-                <p>{item.body}</p>
-                {"href" in item && item.href ? (
-                  <div className="credential-links">
-                    <a href={item.href} target="_blank" rel="noreferrer">
-                      {item.action} {externalIcon}
-                    </a>
-                    {"secondaryHref" in item && item.secondaryHref ? (
-                      <a href={item.secondaryHref} target="_blank" rel="noreferrer">
-                        {item.secondaryAction} {externalIcon}
-                      </a>
-                    ) : null}
-                  </div>
-                ) : null}
-              </article>
-            ))}
-          </div>
-          <a
-            className="credentials-profile-link"
-            href="https://profiles.stanford.edu/samuel-montalvo-hernandez"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {copy.research.profileAction} {externalIcon}
-          </a>
-        </div>
         <section className="recent-updates" aria-labelledby="recent-updates-title">
           <header>
             <span className="eyebrow">{recentUpdates.eyebrow}</span>
@@ -874,6 +876,7 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
             <p>{copy.tools.intro}</p>
           </div>
 
+          <ResearchNetworks locale={locale} kind="workflow" />
           <div className="tools-grid">
             {tools.map((tool) => {
               const text = locale === "es" ? spanishToolCopy[tool.title] : tool;
@@ -1036,49 +1039,43 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="about-section section-shell" id="about">
-        <div className="about-image">
-          <img
-            src="/samuel-montalvo-800.jpg"
-            srcSet="/samuel-montalvo-480.jpg 480w, /samuel-montalvo-800.jpg 800w"
-            sizes="(max-width: 600px) calc(100vw - 50px), (max-width: 850px) 560px, 430px"
-            alt={copy.about.imageAlt}
-            width="620"
-            height="620"
-            loading="lazy"
-          />
-          <div className="about-badge">
-            <span>CPSS</span>
-            <span>CSCS,*D</span>
-            <span>ACSM-CEP</span>
+        <section className="credentials-block section-shell" id="service">
+          <div className="credentials-heading">
+            <span className="eyebrow">{copy.research.credentialsEyebrow}</span>
+            <h3>{copy.research.credentialsTitle}</h3>
           </div>
-        </div>
-        <div className="about-copy">
-          <span className="eyebrow">{copy.about.eyebrow}</span>
-          <h2>{copy.about.title}</h2>
-          <p className="about-lead">{copy.about.lead}</p>
-          <p>{copy.about.body}</p>
-          <p>{copy.about.heritage}</p>
-          <div className="about-links">
-            <a
-              href={
-                locale === "es"
-                  ? "/samuel-montalvo-cv-es.pdf"
-                  : "/samuel-montalvo-cv.pdf"
-              }
-              target="_blank"
-              rel="noreferrer"
-            >
-              {copy.about.cv} {externalIcon}
-            </a>
-            <a href="https://github.com/Samuelmontalvo" target="_blank" rel="noreferrer">
-              {copy.about.github} {externalIcon}
-            </a>
+          <div className="credentials-grid">
+            {copy.research.credentials.map((item) => (
+              <article className="credential-card" key={item.title}>
+                <span>{item.meta}</span>
+                <h4>{item.title}</h4>
+                <p>{item.body}</p>
+                {"href" in item && item.href ? (
+                  <div className="credential-links">
+                    <a href={item.href} target="_blank" rel="noreferrer">
+                      {item.action} {externalIcon}
+                    </a>
+                    {"secondaryHref" in item && item.secondaryHref ? (
+                      <a href={item.secondaryHref} target="_blank" rel="noreferrer">
+                        {item.secondaryAction} {externalIcon}
+                      </a>
+                    ) : null}
+                  </div>
+                ) : null}
+              </article>
+            ))}
           </div>
-        </div>
-      </section>
+          <a
+            className="credentials-profile-link"
+            href="https://profiles.stanford.edu/samuel-montalvo-hernandez"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {copy.research.profileAction} {externalIcon}
+          </a>
+        </section>
 
-      <section className="contact-section">
+      <section className="contact-section" id="contact">
         <div className="section-shell contact-inner">
           <span className="eyebrow light">{copy.contact.eyebrow}</span>
           <h2>{copy.contact.title}</h2>

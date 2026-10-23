@@ -34,7 +34,8 @@ test("server-renders the finished research profile", async () => {
     /<title>Samuel Montalvo, PhD \| Personalized Exercise Medicine<\/title>/i,
   );
   assert.match(html, /<html lang="en">/);
-  assert.match(html, /Mechanistic, physiological, and molecular determinants/);
+  assert.match(html, /<h1>Samuel Montalvo<span>, PhD<\/span><\/h1>/);
+  assert.match(html, /Personalized exercise medicine/);
   assert.match(html, /why people respond differently to exercise/);
   assert.match(html, /MoTrPAC/);
   assert.match(html, /High-performance sport/);
@@ -78,11 +79,14 @@ test("server-renders the finished research profile", async () => {
   assert.match(html, /49(?:<!-- -->)? peer-reviewed papers/);
   assert.match(html, /complete record includes (?:<!-- -->)?100/);
   assert.match(html, /Selected papers/);
-  assert.match(html, /Papers that show the direction of my work/);
   assert.match(html, /Sex-Specific Electrocardiographic Criteria for Left Ventricular Hypertrophy/);
   assert.match(html, /9,254 athletes/);
   assert.equal((html.match(/class="selected-paper-card"/g) ?? []).length, 6);
-  assert.equal((html.match(/<figcaption>/g) ?? []).length, 9);
+  const figures = [...html.matchAll(/<figure\b[^>]*>([\s\S]*?)<\/figure>/g)];
+  assert.ok(figures.length > 0, "Research and tool figures should remain available");
+  for (const [, figure] of figures) {
+    assert.match(figure, /<figcaption>/, "Every figure should retain its caption or credit");
+  }
   assert.match(html, /id="complete-publication-record"/);
   assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/42164870/);
   assert.match(html, /pubmed\.ncbi\.nlm\.nih\.gov\/40837520/);
@@ -136,7 +140,8 @@ test("serves a complete Spanish translation with an English switch", async () =>
   );
   assert.match(html, /<html lang="es">/);
   assert.match(html, /<main lang="es">/);
-  assert.match(html, /Determinantes mecanísticos, fisiológicos y moleculares/);
+  assert.match(html, /<h1>Samuel Montalvo<span>, PhD<\/span><\/h1>/);
+  assert.match(html, /Medicina del ejercicio personalizada/);
   assert.match(html, /por qué cada persona responde de manera distinta al ejercicio/);
   assert.match(html, /Alto rendimiento deportivo/);
   assert.match(html, /Prueba cardiopulmonar de ejercicio/);
@@ -168,17 +173,66 @@ test("serves a complete Spanish translation with an English switch", async () =>
   assert.match(html, /property="og:type" content="website"/);
   assert.match(html, /name="twitter:card" content="summary_large_image"/);
   assert.match(html, /name="twitter:image"/);
-  assert.doesNotMatch(html, /La pregunta detrás de mi trabajo|Medir|Relacionar|Aplicar/);
   assert.doesNotMatch(html, /\/Users\/|file:\/\//);
 });
 
+test("renders accessible research networks and valid section links in both languages", async () => {
+  for (const [pathname, diagramLabel, headings, disclosure] of [
+    [
+      "/",
+      "Interactive network diagram",
+      ["Connected by one question.", "From research questions to useful tools."],
+      "This map describes research activities; individual projects use different combinations of these steps.",
+    ],
+    [
+      "/es",
+      "Diagrama interactivo de conexiones",
+      ["Una pregunta que conecta distintas áreas.", "De las preguntas a las herramientas."],
+      "El mapa describe actividades de investigación; cada proyecto combina estas etapas de forma distinta.",
+    ],
+  ]) {
+    const response = await render(pathname);
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
+    const uniqueIds = new Set(ids);
+    assert.equal(uniqueIds.size, ids.length, `${pathname}: element IDs must be unique`);
+
+    for (const [, target] of html.matchAll(/\bhref="#([^"]+)"/g)) {
+      assert.ok(uniqueIds.has(target), `${pathname}: #${target} must resolve to a section`);
+    }
+
+    const networks = [...html.matchAll(/<section class="rm-network rm-network--([^" ]+)"[^>]*>([\s\S]*?)<\/section>/g)];
+    assert.deepEqual(networks.map((match) => match[1]), ["research", "workflow"]);
+    for (const [, kind, network] of networks) {
+      assert.ok(network.includes(`role="group" aria-label="${diagramLabel}"`));
+      const nodes = [...network.matchAll(/<button\b([^>]*)>/g)].map((match) => match[1]);
+      assert.ok(nodes.length > 1, `${pathname}: ${kind} must offer multiple connections`);
+      assert.equal(nodes.filter((node) => /aria-pressed="true"/.test(node)).length, 1);
+      for (const node of nodes) {
+        assert.match(node, /type="button"/);
+        assert.match(node, /aria-pressed="(?:true|false)"/);
+        const detailsId = node.match(/aria-controls="([^"]+)"/)?.[1];
+        assert.ok(detailsId && uniqueIds.has(detailsId), "Every node must control an existing detail region");
+        assert.ok(network.includes(`id="${detailsId}" class="rm-detail" aria-live="polite" aria-atomic="true"`));
+      }
+      assert.match(network, /<svg\b[^>]*aria-hidden="true"[^>]*focusable="false"/);
+    }
+    for (const heading of headings) assert.ok(html.includes(heading));
+    assert.ok(html.includes(disclosure));
+    assert.match(html, /class="rm-detail-copy"[\s\S]*?href="#projects"/);
+    assert.match(html, /class="rm-detail-copy"[\s\S]*?href="https:\/\/github\.com\/Samuelmontalvo\/metabotyping-agentic-workbench"/);
+  }
+});
+
 test("ships site-specific metadata and accessible assets", async () => {
-  const [layout, page, spanishPage, publicationData, styles] = await Promise.all([
+  const [layout, page, spanishPage, publicationData, styles, networkStyles] = await Promise.all([
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/es/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/publications-data.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+    readFile(new URL("../app/research-networks.css", import.meta.url), "utf8"),
   ]);
 
   assert.match(layout, /metadataBase/);
@@ -195,9 +249,10 @@ test("ships site-specific metadata and accessible assets", async () => {
   assert.equal((publicationData.match(/"href":/g) ?? []).length, 100);
   assert.equal((publicationData.match(/"label": "PubMed"/g) ?? []).length, 38);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
-  assert.match(styles, /\.selected-papers-heading h2\s*\{[^}]*font-family:\s*var\(--serif\)[^}]*line-height:\s*1;/s);
-  assert.match(styles, /font-size:\s*clamp\(45px,\s*13vw,\s*58px\)/);
-  assert.match(styles, /font-size:\s*clamp\(38px,\s*10\.8vw,\s*46px\)/);
+  assert.match(styles, /--cardinal:\s*#8c1515/i);
+  assert.match(styles, /:focus-visible/);
+  assert.match(networkStyles, /--rm-cardinal:\s*#8c1515/i);
+  assert.match(networkStyles, /:focus-visible/);
   assert.doesNotMatch(styles, /\.translation-section|\.translation-steps/);
   assert.match(styles, /\.publication-source/);
 
